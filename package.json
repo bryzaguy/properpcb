@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bryzaguy/properpcb/issues"
   },
-  "homepage": "https://github.com/bryzaguy/properpcb"
+  "homepage": "https://github.com/bryzaguy/properpcb",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
