@@ -1,0 +1,30 @@
+[
+	{
+		"manufacturer": "PCB One",
+		"amount": 139.15
+	},
+	{
+		"manufacturer": "PCB Two",
+		"amount": 129.00
+	},
+	{
+		"manufacturer": "PCB Three",
+		"amount": 140.00
+	},
+	{
+		"manufacturer": "PCB Four",
+		"amount": 145.56
+	},
+	{
+		"manufacturer": "PCB Five",
+		"amount": 137.15
+	},
+	{
+		"manufacturer": "PCB Six",
+		"amount": 129.99
+	},
+	{
+		"manufacturer": "PCB Seven",
+		"amount": 149.35
+	}	
+]
