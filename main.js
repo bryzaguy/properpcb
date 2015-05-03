@@ -1,57 +1,8 @@
-var React = require('react');
+var React = require('react'),
+  Entry = require('./pages/entry.jsx'),
+  Results = require('./pages/results.jsx');
 
 require('./app.scss');
-
-var Entry = React.createClass({
-  go: function () {
-    this.props.handleGo({
-      values: {},
-      submitted: true
-    });
-  },
-  render: function () {
-    return (
-      <div className="container">
-        <form className="product-info">
-          <h2>Compare PCB prices for top venders.</h2>
-          <label>Please enter board size:</label>
-          <br />
-          <input className="input-thin" type="number" value="4" /> X <input className="input-thin" type="number" value="8" />
-          <br />
-          <div class="float-input">
-            <label>Quantity:</label>
-            <br />
-            <input className="input-thin" type="number" value="10" />
-          </div>
-          <div class="float-input">
-            <label>Lead Time:</label>
-            <br />
-            <select className="input-thin">
-              <option>Any</option>
-              <option>1 Week</option>
-              <option>2 Weeks</option>
-            </select>
-          </div>
-          <div className="wrapper">
-            <button className="progress-button" 
-                    onClick={this.go}
-                    data-style="rotate-side-up" 
-                    data-perspective 
-                    data-horizontal>
-                    <strong>Go!</strong>
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
-});
-
-var Results = React.createClass({
-  render: function () {
-    return <div>STUFFS</div>;
-  }
-});
 
 var App = React.createClass({
   getInitialState: function () {
