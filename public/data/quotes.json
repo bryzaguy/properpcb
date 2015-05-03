@@ -1,30 +1,29 @@
-[
-	{
-		"manufacturer": "PCB One",
-		"amount": 139.15
-	},
-	{
-		"manufacturer": "PCB Two",
-		"amount": 129.00
-	},
-	{
-		"manufacturer": "PCB Three",
-		"amount": 140.00
-	},
-	{
-		"manufacturer": "PCB Four",
-		"amount": 145.56
-	},
-	{
-		"manufacturer": "PCB Five",
-		"amount": 137.15
-	},
-	{
-		"manufacturer": "PCB Six",
-		"amount": 129.99
-	},
-	{
-		"manufacturer": "PCB Seven",
-		"amount": 149.35
-	}	
-]
+[{
+  "manufacturer": "PCB One",
+  "stars": 4,
+  "amount": 139.15
+}, {
+  "manufacturer": "PCB Two",
+  "stars": 4,
+  "amount": 129.00
+}, {
+  "manufacturer": "PCB Three",
+  "stars": 4,
+  "amount": 140.00
+}, {
+  "manufacturer": "PCB Four",
+  "stars": 4,
+  "amount": 145.56
+}, {
+  "manufacturer": "PCB Five",
+  "stars": 4,
+  "amount": 137.15
+}, {
+  "manufacturer": "PCB Six",
+  "stars": 4,
+  "amount": 129.99
+}, {
+  "manufacturer": "PCB Seven",
+  "stars": 4,
+  "amount": 149.35
+}]

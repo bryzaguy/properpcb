@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ccb58cc0bc112029a9ec"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6426c6d9a13992dc3542"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21373,7 +21373,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(3),
-	  $ = __webpack_require__(168);
+	  $ = __webpack_require__(168),
+	  ResultItem = __webpack_require__(173);
 
 	__webpack_require__(169);
 
@@ -21390,9 +21391,7 @@
 	  },
 	  render: function () {
 	    var results = this.state.results.map(function (r, i) {
-	      return (React.createElement("div", {className: "result-item", key: i}, 
-	          React.createElement("p", null, JSON.stringify(r))
-	        ));
+	      return (React.createElement(ResultItem, {item: r, key: i}));
 	    })
 	    return (React.createElement("div", {className: "results-view"}, results));
 	  }
@@ -30646,7 +30645,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  background: rgba(102, 111, 133, 0.5);\n  height: 100%;\n  width: 100%; }\n\n.result-item {\n  font-size: 20px;\n  color: white;\n  font-family: Helvetica, Arial; }\n", ""]);
+	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  background: rgba(102, 111, 133, 0.5);\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 /***/ },
 /* 171 */
@@ -30680,6 +30679,63 @@
 
 	exports = module.exports = __webpack_require__(8)();
 	exports.push([module.id, ".side-panel {\n  font-family: 'Slabo 27px', serif;\n  left: 0;\n  position: fixed;\n  width: 200px;\n  background-color: rgba(35, 39, 46, 0.5);\n  height: 100%;\n  font-size: 20px;\n  color: white;\n  font-family: Helvetica, Arial; }\n\n.side-panel img {\n  width: 150px;\n  margin: 15px; }\n", ""]);
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(3);
+	__webpack_require__(174)
+
+	module.exports = React.createClass({displayName: "module.exports",
+	  render: function(){
+	    var item = this.props.item, stars = '';
+	    for (var i = 0; i < item.stars; i++) {
+	      stars += '★';
+	    }
+	    return (
+	        React.createElement("div", {className: "result-item"}, 
+	          React.createElement("div", null, React.createElement("img", {class: "logo", src: "pcb.jpg"})), 
+	          React.createElement("div", null, item.manufacturer, " - $", item.amount), 
+	          React.createElement("div", null, stars), 
+	          React.createElement("button", null, "Buy")
+	        )
+	      );
+	  }
+	});
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(175);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(175, function() {
+				var newContent = __webpack_require__(175);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	exports.push([module.id, ".result-item {\n  font-size: 15px;\n  color: #FFF;\n  font-family: Helvetica, Arial;\n  float: left;\n  padding: 7px;\n  margin: 30px;\n  background: #AAA;\n  border: solid 1px #000;\n  line-height: 25px; }\n\n.result-item img {\n  height: 150px; }\n\n.result-item button {\n  font-size: 20px;\n  padding: 15px;\n  width: 100%; }\n", ""]);
 
 /***/ }
 /******/ ]);

@@ -1,5 +1,6 @@
 var React = require('react'),
-  $ = require('jquery');
+  $ = require('jquery'),
+  ResultItem = require('./resultitem.jsx');
 
 require('./resultview.scss');
 
@@ -16,9 +17,7 @@ module.exports = React.createClass({
   },
   render: function () {
     var results = this.state.results.map(function (r, i) {
-      return (<div className="result-item" key={i}>
-          <p>{JSON.stringify(r)}</p>
-        </div>);
+      return (<ResultItem item={r} key={i} />);
     })
     return (<div className="results-view">{results}</div>);
   }
