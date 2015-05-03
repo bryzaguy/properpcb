@@ -5,7 +5,7 @@ module.exports = [{
   name: "browser",
   entry: "./main.js",
   output: {
-    path: "public",
+    path: "public/build",
     filename: "./bundle.js"
   },
   module: {

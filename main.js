@@ -1,5 +1,7 @@
 var React = require('react');
 
+require('./app.scss');
+
 var App = React.createClass({
   render: function () {
     return (
