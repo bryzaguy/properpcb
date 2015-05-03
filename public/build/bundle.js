@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "df573e48a77e26d407d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1992495c7c43777ff475"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -537,39 +537,46 @@
 	__webpack_require__(2);
 
 	var Entry = React.createClass({displayName: "Entry",
+	  go: function () {
+	    this.props.handleGo({
+	      values: {},
+	      submitted: true
+	    });
+	  },
 	  render: function () {
 	    return (
 	      React.createElement("div", {className: "container"}, 
-	      React.createElement("form", {className: "product-info"}, 
-	      React.createElement("h2", null, "Compare PCB prices for top venders."), 
-	      React.createElement("label", null, "Please enter board size:"), 
-	      React.createElement("br", null), 
-	      React.createElement("input", {className: "input-thin", type: "number", value: "4"}), " X ", React.createElement("input", {className: "input-thin", type: "number", value: "8"}), 
-	      React.createElement("br", null), 
-	      React.createElement("div", {class: "float-input"}, 
-	        React.createElement("label", null, "Quantity:"), 
-	        React.createElement("br", null), 
-	        React.createElement("input", {className: "input-thin", type: "number", value: "10"})
-	      ), 
-	      React.createElement("div", {class: "float-input"}, 
-	        React.createElement("label", null, "Lead Time:"), 
-	        React.createElement("br", null), 
-	        React.createElement("select", {className: "input-thin"}, 
-	          React.createElement("option", null, "Any"), 
-	          React.createElement("option", null, "1 Week"), 
-	          React.createElement("option", null, "2 Weeks")
-	        )
-	      ), 
-	      React.createElement("div", {className: "wrapper"}, 
-	        React.createElement("button", {className: "progress-button", 
-	                "data-style": "rotate-side-up", 
-	                "data-perspective": true, 
-	                "data-horizontal": true}, 
-	                React.createElement("strong", null, "Go!")
+	        React.createElement("form", {className: "product-info"}, 
+	          React.createElement("h2", null, "Compare PCB prices for top venders."), 
+	          React.createElement("label", null, "Please enter board size:"), 
+	          React.createElement("br", null), 
+	          React.createElement("input", {className: "input-thin", type: "number", value: "4"}), " X ", React.createElement("input", {className: "input-thin", type: "number", value: "8"}), 
+	          React.createElement("br", null), 
+	          React.createElement("div", {class: "float-input"}, 
+	            React.createElement("label", null, "Quantity:"), 
+	            React.createElement("br", null), 
+	            React.createElement("input", {className: "input-thin", type: "number", value: "10"})
+	          ), 
+	          React.createElement("div", {class: "float-input"}, 
+	            React.createElement("label", null, "Lead Time:"), 
+	            React.createElement("br", null), 
+	            React.createElement("select", {className: "input-thin"}, 
+	              React.createElement("option", null, "Any"), 
+	              React.createElement("option", null, "1 Week"), 
+	              React.createElement("option", null, "2 Weeks")
+	            )
+	          ), 
+	          React.createElement("div", {className: "wrapper"}, 
+	            React.createElement("button", {className: "progress-button", 
+	                    onClick: this.go, 
+	                    "data-style": "rotate-side-up", 
+	                    "data-perspective": true, 
+	                    "data-horizontal": true}, 
+	                    React.createElement("strong", null, "Go!")
+	            )
+	          )
 	        )
 	      )
-	    )
-	  )
 	    );
 	  }
 	});
@@ -592,9 +599,9 @@
 	  },
 	  render: function () {
 	    if (this.state.submitted) {
-	      return React.createElement(Results, null);
+	      return React.createElement(Results, {handleGo: this.submit});
 	    } else {
-	      return React.createElement(Entry, null);
+	      return React.createElement(Entry, {handleGo: this.submit});
 	    }
 	  }
 	});
@@ -639,7 +646,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(6)();
-	exports.push([module.id, ".splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.input-thin {\n  width: 150px;\n  height: 40px;\n  font-size: 20px;\n  border-radius: 2px;\n  border: none;\n  margin: 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif; }\n\n.product-info {\n  position: absolute;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding-top: 60px;\n  padding-bottom: 60px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
+	exports.push([module.id, ".splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.float-input {\n  float: left; }\n\n.input-thin {\n  width: 150px;\n  height: 40px;\n  font-size: 20px;\n  border-radius: 2px;\n  border: none;\n  margin: 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif; }\n\n.product-info {\n  position: absolute;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding-top: 60px;\n  padding-bottom: 60px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
 
 /***/ },
 /* 4 */
