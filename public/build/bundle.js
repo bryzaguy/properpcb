@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b6ceb56cec1edd25cb51"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1088915190afd473588a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -582,7 +582,7 @@
 	        React.createElement("div", {className: "container"}, 
 	          React.createElement("form", {className: "product-info"}, 
 	            React.createElement("h2", null, "Compare PCB prices from top venders."), 
-	            React.createElement("label", null, "Please enter board size:"), 
+	            React.createElement("label", null, "Please enter board size (inches):"), 
 	            React.createElement("br", null), 
 	            React.createElement("input", {className: "input-thin", type: "number", value: "4"}), " X ", React.createElement("input", {className: "input-thin", type: "number", value: "8"}), 
 	            React.createElement("br", null), 
@@ -671,7 +671,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0; }\n\n.splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.float-input {\n  float: left;\n  padding: 20px 0; }\n\n.float-input-left {\n  padding: 20px 20px 20px 30px; }\n\n.input-thin {\n  width: 150px;\n  font-size: 20px;\n  height: 40px;\n  border-radius: 2px;\n  border: none;\n  margin: 10px 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 20px 0; }\n\n.product-info label {\n  line-height: 2px; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  font-family: Helvetica, Arial;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.wrapper {\n  clear: both;\n  padding: 0 0 30px 0; }\n\n.go-button {\n  width: 360px;\n  font-size: 20px;\n  background: #0C0;\n  font-family: Helvetica, Arial;\n  padding: 20px;\n  outline: none;\n  border: none; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  background-size: cover;\n  width: 100%;\n  height: auto;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0; }\n\n.splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.float-input {\n  float: left;\n  padding: 20px 0; }\n\n.float-input-left {\n  padding: 20px 20px 20px 30px; }\n\n.input-thin {\n  width: 150px;\n  font-size: 20px;\n  height: 40px;\n  border-radius: 2px;\n  border: none;\n  margin: 10px 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 30px 0; }\n\n.product-info label {\n  line-height: 2px; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  font-family: Helvetica, Arial;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.wrapper {\n  clear: both;\n  padding: 0 0 30px 0; }\n\n.go-button {\n  width: 360px;\n  color: white;\n  font-size: 20px;\n  background: #0C0;\n  font-family: Helvetica, Arial;\n  padding: 20px;\n  outline: none;\n  border: none; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  background-size: cover;\n  width: 100%;\n  height: auto;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
 
 /***/ },
 /* 6 */

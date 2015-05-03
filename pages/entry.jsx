@@ -17,7 +17,7 @@ module.exports = React.createClass({
         <div className="container">
           <form className="product-info">
             <h2>Compare PCB prices from top venders.</h2>
-            <label>Please enter board size:</label>
+            <label>Please enter board size (inches):</label>
             <br />
             <input className="input-thin" type="number" value="4" /> X <input className="input-thin" type="number" value="8" />
             <br />
