@@ -1,6 +1,7 @@
 var React = require('react'),
   Entry = require('./pages/entry.jsx'),
-  Results = require('./pages/results.jsx');
+  Results = require('./pages/results.jsx'),
+  Contact = require('./pages/contact.jsx');
 
 require('./app.scss');
 
@@ -15,11 +16,13 @@ var App = React.createClass({
     });
   },
   render: function () {
+    var page;
     if (this.state.submitted) {
-      return <Results handleGo={this.submit} />;
+      page = <Results handleGo={this.submit} />;
     } else {
-      return <Entry handleGo={this.submit} />;
+      page = <Entry handleGo={this.submit} />;
     }
+    return <div>{page}<Contact /></div>;
   }
 });
 

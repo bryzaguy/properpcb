@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0bce3e3883375c9a2ee7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e196f8f41805673cc6bc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -534,7 +534,8 @@
 
 	var React = __webpack_require__(3),
 	  Entry = __webpack_require__(1),
-	  Results = __webpack_require__(2);
+	  Results = __webpack_require__(2),
+	  Contact = __webpack_require__(163);
 
 	__webpack_require__(4);
 
@@ -549,11 +550,13 @@
 	    });
 	  },
 	  render: function () {
+	    var page;
 	    if (this.state.submitted) {
-	      return React.createElement(Results, {handleGo: this.submit});
+	      page = React.createElement(Results, {handleGo: this.submit});
 	    } else {
-	      return React.createElement(Entry, {handleGo: this.submit});
+	      page = React.createElement(Entry, {handleGo: this.submit});
 	    }
+	    return React.createElement("div", null, page, React.createElement(Contact, null));
 	  }
 	});
 
@@ -670,7 +673,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0; }\n\n.splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.float-input {\n  float: left;\n  padding: 20px 0; }\n\n.float-input-left {\n  padding: 20px 20px 20px 30px; }\n\n.input-thin {\n  width: 150px;\n  font-size: 20px;\n  height: 40px;\n  border-radius: 2px;\n  border: none;\n  margin: 10px 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 30px 0; }\n\n.product-info label {\n  line-height: 2px; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  font-family: Helvetica, Arial;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.wrapper {\n  clear: both;\n  padding: 0 0 30px 0; }\n\n.go-button {\n  width: 360px;\n  color: white;\n  font-size: 20px;\n  background: #0C0;\n  font-family: Helvetica, Arial;\n  padding: 20px;\n  outline: none;\n  border: none; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  background-size: cover;\n  width: 100%;\n  height: auto;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0; }\n\n.splash-header {\n  /*\n  background-color: hsla(222, 13%, 16%, 0.5);*/\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  width: 100%;\n  height: auto;\n  padding: 10px; }\n\n.logo-letter {\n  margin: 25px;\n  height: 200px; }\n\n.logo {\n  margin: 10px;\n  width: 200px; }\n\n.float-input {\n  float: left;\n  padding: 20px 0; }\n\n.float-input-left {\n  padding: 20px 20px 20px 30px; }\n\n.input-thin {\n  width: 150px;\n  font-size: 20px;\n  height: 40px;\n  border-radius: 2px;\n  border: none;\n  margin: 10px 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 30px 0; }\n\n.product-info label {\n  line-height: 2px; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  font-family: Helvetica, Arial;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 100px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\n.wrapper {\n  clear: both;\n  padding: 0 0 30px 0; }\n\n.go-button {\n  width: 360px;\n  color: white;\n  font-size: 20px;\n  background: #0C0;\n  font-family: Helvetica, Arial;\n  padding: 20px;\n  outline: none;\n  border: none; }\n\n.go-button:active {\n  background: #0A0; }\n\n.container {\n  position: absolute;\n  width: 100%;\n  text-align: center; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  background-size: cover;\n  width: 100%;\n  height: auto;\n  z-index: -100; }\n\nbody {\n  background: #000; }\n", ""]);
 
 /***/ },
 /* 6 */
@@ -21247,6 +21250,54 @@
 	module.exports = toArray;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(3);
+
+	__webpack_require__(164);
+
+	module.exports = React.createClass({displayName: "module.exports",
+	  render: function () {
+	    return React.createElement("div", {className: "contact-footer"}, React.createElement("a", {href: "email:support@properpcb.com"}, "Contact"));
+	  }
+	});
+
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(165);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(165, function() {
+				var newContent = __webpack_require__(165);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(8)();
+	exports.push([module.id, ".contact-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49; }\n", ""]);
 
 /***/ }
 /******/ ]);
