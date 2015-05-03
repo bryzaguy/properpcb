@@ -1,6 +1,8 @@
 var React = require('react'),
   $ = require('jquery');
 
+require('./resultview.scss');
+
 module.exports = React.createClass({
   getInitialState: function () {
     return {
@@ -8,14 +10,14 @@ module.exports = React.createClass({
     }
   },
   componentDidMount: function () {
-    $.getJSON( "data/test.json", function( data ) {
+    $.getJSON( "data/quotes.json", function( data ) {
       this.setState({results: data});
-    });
+    }.bind(this));
   },
   render: function () {
-    var results = this.state.results.map(function (r) {
-      return (<div>
-          <h5>{JSON.stringify(r)}</h5>
+    var results = this.state.results.map(function (r, i) {
+      return (<div className="result-item" key={i}>
+          <p>{JSON.stringify(r)}</p>
         </div>);
     })
     return (<div className="results-view">{results}</div>);
