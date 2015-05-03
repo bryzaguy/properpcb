@@ -10,6 +10,7 @@ var App = React.createClass({
     return {};
   },
   submit: function (values) {
+    console.log(values);
     this.setState({
       values: values,
       submitted: true
