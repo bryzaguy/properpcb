@@ -7,7 +7,6 @@ module.exports = React.createClass({
       submitted: true
     });
   },
-  componentDidMount: function () {},
   render: function () {
     return (
       <div>
@@ -46,7 +45,7 @@ module.exports = React.createClass({
         </div>
         <div className="tint-overlay"></div>
         <div id="siteWrapper" className="clearfix">
-          <video autoPlay loop poster="http://www.piedpiper.com/assets/header-fallback-large.jpg" id="bgvid">
+          <video autoPlay loop id="bgvid">
             <source src="http://www.piedpiper.com/assets/whiteboard-drawing-01.mp4" type="video/mp4" />
           </video>
         </div>

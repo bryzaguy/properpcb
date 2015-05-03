@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1088915190afd473588a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0bce3e3883375c9a2ee7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -572,7 +572,6 @@
 	      submitted: true
 	    });
 	  },
-	  componentDidMount: function () {},
 	  render: function () {
 	    return (
 	      React.createElement("div", null, 
@@ -611,7 +610,7 @@
 	        ), 
 	        React.createElement("div", {className: "tint-overlay"}), 
 	        React.createElement("div", {id: "siteWrapper", className: "clearfix"}, 
-	          React.createElement("video", {autoPlay: true, loop: true, poster: "http://www.piedpiper.com/assets/header-fallback-large.jpg", id: "bgvid"}, 
+	          React.createElement("video", {autoPlay: true, loop: true, id: "bgvid"}, 
 	            React.createElement("source", {src: "http://www.piedpiper.com/assets/whiteboard-drawing-01.mp4", type: "video/mp4"})
 	          )
 	        )
