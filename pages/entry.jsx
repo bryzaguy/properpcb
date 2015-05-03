@@ -16,17 +16,17 @@ module.exports = React.createClass({
         </div>
         <div className="container">
           <form className="product-info">
-            <h2>Compare PCB prices for top venders.</h2>
+            <h2>Compare PCB prices from top venders.</h2>
             <label>Please enter board size:</label>
             <br />
             <input className="input-thin" type="number" value="4" /> X <input className="input-thin" type="number" value="8" />
             <br />
-            <div className="float-input">
+            <div className="float-input float-input-left">
               <label>Quantity:</label>
               <br />
               <input className="input-thin" type="number" value="10" />
             </div>
-            <div className="float-input">
+            <div className="float-input float-input-right">
               <label>Lead Time:</label>
               <br />
               <select className="input-thin">
@@ -35,10 +35,11 @@ module.exports = React.createClass({
                 <option>2 Weeks</option>
               </select>
             </div>
+            <br />
             <div className="wrapper">
               <button className="go-button" 
                       onClick={this.go}>
-                      <strong>Go!</strong>
+                      <strong>Go</strong>
               </button>
             </div>
           </form>
