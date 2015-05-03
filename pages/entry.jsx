@@ -1,9 +1,43 @@
 var React = require('react');
 
 module.exports = React.createClass({
-  go: function () {
+  getInitialState: function () {
+    return {
+      boardWidth: 4,
+      boardHeight: 8,
+      quantity: 10,
+      leadTime: ''
+    };
+  },
+  widthChange: function(e) {
+    this.setState({
+      boardWidth: e.target.value
+    });
+  },
+  heightChange: function(e) {
+    this.setState({
+      boardHeight: e.target.value
+    });
+  },
+  leadChange: function(e) {
+    this.setState({
+      leadTime: e.target.value
+    });
+  },
+  quantityChange: function(e) {
+    this.setState({
+      quantity: e.target.value
+    });
+  },
+  go: function (e) {
+    e.preventDefault();
     this.props.handleGo({
-      values: {},
+      values: {
+        boardWidth: this.state.boardWidth,
+        boardHeight: this.state.boardHeight,
+        quantity: this.state.quantity,
+        leadTime: this.state.leadTime
+      },
       submitted: true
     });
   },
@@ -18,20 +52,30 @@ module.exports = React.createClass({
             <h2>Compare PCB prices from top venders.</h2>
             <label>Please enter board size (inches):</label>
             <br />
-            <input className="input-thin" type="number" value="4" /> X <input className="input-thin" type="number" value="8" />
+            <input className="input-thin" 
+                    value={this.state.boardWidth}
+                    onChange={this.widthChange} /> X 
+            <input className="input-thin" 
+                    value={this.state.boardHeight}
+                    onChange={this.heightChange} />
             <br />
             <div className="float-input float-input-left">
               <label>Quantity:</label>
               <br />
-              <input className="input-thin" type="number" value="10" />
+              <input className="input-thin" 
+                    value={this.state.quantity}
+                    onChange={this.quantityChange}
+                    ref="quantity" />
             </div>
             <div className="float-input float-input-right">
               <label>Lead Time:</label>
               <br />
-              <select className="input-thin">
-                <option>Any</option>
-                <option>1 Week</option>
-                <option>2 Weeks</option>
+              <select className="input-thin" 
+                    value={this.state.leadTime} 
+                    onChange={this.leadChange}>
+                <option value="">Any</option>
+                <option value="7">1 Week</option>
+                <option value="14">2 Weeks</option>
               </select>
             </div>
             <br />
