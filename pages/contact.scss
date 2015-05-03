@@ -1,0 +1,15 @@
+.contact-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #3A3E49;
+  padding: 25px;
+  text-align: center;
+  background: linear-gradient(to top, hsla(222, 13%, 16%, 0.5), hsla(222, 13%, 56%, 0.3));
+  border-top: solid 1px hsla(255, 100%, 100%, .3);
+}
+.contact-footer a:link {
+  font-family: Helvetica, Arial;
+  color: white;
+  text-decoration: none;
+}
