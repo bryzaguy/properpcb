@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7b1b91b9b31eba33a3e3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5d549cd18108fd3c08ac"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21346,7 +21346,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, ".contact-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 25px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, rgba(35, 39, 46, 0.5), rgba(128, 137, 157, 0.3));\n  background: linear-gradient(to top, rgba(35, 39, 46, 0.5), rgba(128, 137, 157, 0.3));\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.contact-footer a:link {\n  font-family: Helvetica, Arial;\n  color: white;\n  text-decoration: none; }\n", ""]);
+	exports.push([module.id, ".contact-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 25px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, #23272e, #505768);\n  background: linear-gradient(to top, #23272e, #505768);\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.contact-footer a:link {\n  font-family: Helvetica, Arial;\n  color: white;\n  text-decoration: none; }\n", ""]);
 
 /***/ },
 /* 166 */
