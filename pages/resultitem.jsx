@@ -10,7 +10,8 @@ module.exports = React.createClass({
     return (
         <div className="result-item">
           <div><img class="logo" src="pcb.jpg" /></div>
-          <div>{item.manufacturer} - ${item.amount}</div>
+          <div>{item.manufacturer}</div>
+          <div>${item.amount}</div>
           <div>{stars}</div>
           <button>Buy</button>
         </div>

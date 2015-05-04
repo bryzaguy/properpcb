@@ -1,29 +1,29 @@
 [{
-  "manufacturer": "PCB One",
+  "manufacturer": "Manufacturer One",
   "stars": 4,
   "amount": 139.15
 }, {
-  "manufacturer": "PCB Two",
+  "manufacturer": "Manufacturer Two",
   "stars": 4,
   "amount": 129.00
 }, {
-  "manufacturer": "PCB Three",
+  "manufacturer": "Manufacturer Three",
   "stars": 4,
   "amount": 140.00
 }, {
-  "manufacturer": "PCB Four",
+  "manufacturer": "Manufacturer Four",
   "stars": 4,
   "amount": 145.56
 }, {
-  "manufacturer": "PCB Five",
+  "manufacturer": "Manufacturer Five",
   "stars": 4,
   "amount": 137.15
 }, {
-  "manufacturer": "PCB Six",
+  "manufacturer": "Manufacturer Six",
   "stars": 4,
   "amount": 129.99
 }, {
-  "manufacturer": "PCB Seven",
+  "manufacturer": "Manufacturer Seven",
   "stars": 4,
   "amount": 149.35
 }]

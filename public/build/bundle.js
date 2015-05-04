@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6426c6d9a13992dc3542"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7b1b91b9b31eba33a3e3"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21360,8 +21360,28 @@
 	  render: function () {
 	    return (React.createElement("div", {className: "side-panel"}, 
 	        React.createElement("img", {src: "properlogo.png"}), 
-	        React.createElement("h3", null, "Criteria"), 
-	        React.createElement("form", null
+	        React.createElement("form", null, 
+	          React.createElement("div", null, 
+	            React.createElement("label", null, 
+	              React.createElement("span", null, "Quantity: 10"), 
+	              React.createElement("br", null), 
+	              React.createElement("input", {type: "range"})
+	            )
+	          ), 
+	          React.createElement("div", null, 
+	            React.createElement("label", null, 
+	              React.createElement("span", null, "Lead Time: 5"), 
+	              React.createElement("br", null), 
+	              React.createElement("input", {type: "range"})
+	            )
+	          ), 
+	          React.createElement("div", null, 
+	            React.createElement("label", null, 
+	              React.createElement("span", null, "Rating: 4"), 
+	              React.createElement("br", null), 
+	              React.createElement("input", {type: "range"})
+	            )
+	          )
 	        )
 	      ));
 	  }
@@ -30678,7 +30698,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, ".side-panel {\n  font-family: 'Slabo 27px', serif;\n  left: 0;\n  position: fixed;\n  width: 200px;\n  background-color: rgba(35, 39, 46, 0.5);\n  height: 100%;\n  font-size: 20px;\n  color: white;\n  font-family: Helvetica, Arial; }\n\n.side-panel img {\n  width: 150px;\n  margin: 15px; }\n", ""]);
+	exports.push([module.id, ".side-panel {\n  font-family: 'Slabo 27px', serif;\n  left: 0;\n  position: fixed;\n  width: 200px;\n  background-color: rgba(35, 39, 46, 0.5);\n  height: 100%;\n  font-size: 20px;\n  color: white;\n  font-family: Helvetica, Arial; }\n\n.side-panel form {\n  padding: 20px;\n  text-align: left; }\n\n.side-panel div {\n  padding: 10px 0; }\n\n.side-panel img {\n  width: 150px;\n  margin: 15px; }\n", ""]);
 
 /***/ },
 /* 173 */
@@ -30696,7 +30716,8 @@
 	    return (
 	        React.createElement("div", {className: "result-item"}, 
 	          React.createElement("div", null, React.createElement("img", {class: "logo", src: "pcb.jpg"})), 
-	          React.createElement("div", null, item.manufacturer, " - $", item.amount), 
+	          React.createElement("div", null, item.manufacturer), 
+	          React.createElement("div", null, "$", item.amount), 
 	          React.createElement("div", null, stars), 
 	          React.createElement("button", null, "Buy")
 	        )
@@ -30735,7 +30756,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(8)();
-	exports.push([module.id, ".result-item {\n  font-size: 15px;\n  color: #FFF;\n  font-family: Helvetica, Arial;\n  float: left;\n  padding: 7px;\n  margin: 30px;\n  background: #AAA;\n  border: solid 1px #000;\n  line-height: 25px; }\n\n.result-item img {\n  height: 150px; }\n\n.result-item button {\n  font-size: 20px;\n  padding: 15px;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, ".result-item {\n  font-size: 14px;\n  color: #FFF;\n  font-family: Helvetica, Arial;\n  float: left;\n  padding: 7px;\n  margin: 30px;\n  background: #AAA;\n  border: solid 1px #000;\n  line-height: 25px; }\n\n.result-item img {\n  border: solid 1px #333;\n  height: 150px; }\n\n.result-item button {\n  font-size: 20px;\n  padding: 15px;\n  width: 100%; }\n", ""]);
 
 /***/ }
 /******/ ]);
