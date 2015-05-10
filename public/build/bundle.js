@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a939cda4bc900f6271d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "090ffc63b10c20efad94"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -596,40 +596,47 @@
 	          React.createElement("form", {className: "product-info"}, 
 	            React.createElement("h2", null, "Compare PCB prices from top venders."), 
 
-	            React.createElement(InputField, {name: "layers", 
-	              value: this.state.layers, 
-	              type: "number", 
-	              title: "Layers *", 
-	              description: "How many layers are in your design?", 
-	              onChange: this.handleChange}), 
+	            React.createElement("div", {className: "product-info-section"}, 
+	              React.createElement(InputField, {name: "layers", 
+	                value: this.state.layers, 
+	                type: "number", 
+	                title: "Layers *", 
+	                description: "How many layers are in your design?", 
+	                onChange: this.handleChange}), 
+	              React.createElement("div", {className: "product-info-clear"})
+	            ), 
+	            React.createElement("div", {className: "product-info-section"}, 
+	              React.createElement(InputField, {name: "boardWidth", 
+	                value: this.state.boardWidth, 
+	                type: "number", 
+	                title: "X Dimension (inches) *", 
+	                description: "How wide is your board?", 
+	                onChange: this.handleChange}), 
 
-	            React.createElement(InputField, {name: "boardWidth", 
-	              value: this.state.boardWidth, 
-	              type: "number", 
-	              title: "X Dimension (inches) *", 
-	              description: "How wide is your board?", 
-	              onChange: this.handleChange}), 
+	              React.createElement(InputField, {name: "boardHeight", 
+	                value: this.state.boardHeight, 
+	                type: "number", 
+	                title: "Y Dimension (inches) *", 
+	                description: "How tall is your board?", 
+	                onChange: this.handleChange}), 
+	              React.createElement("div", {className: "product-info-clear"})
+	            ), 
+	            React.createElement("div", {className: "product-info-section"}, 
+	              React.createElement(InputField, {name: "quantity", 
+	                value: this.state.quantity, 
+	                type: "number", 
+	                title: "Quantity *", 
+	                description: "How many boards do you need?", 
+	                onChange: this.handleChange}), 
 
-	            React.createElement(InputField, {name: "boardHeight", 
-	              value: this.state.boardHeight, 
-	              type: "number", 
-	              title: "Y Dimension (inches) *", 
-	              description: "How tall is your board?", 
-	              onChange: this.handleChange}), 
-
-	            React.createElement(InputField, {name: "quantity", 
-	              value: this.state.quantity, 
-	              type: "number", 
-	              title: "Quantity *", 
-	              description: "How many boards do you need?", 
-	              onChange: this.handleChange}), 
-
-	            React.createElement(InputField, {name: "leadTime", 
-	              value: this.state.leadTime, 
-	              type: "number", 
-	              title: "Lead Time *", 
-	              description: "How many business days can you wait for your board to be manufactured?", 
-	              onChange: this.handleChange}), 
+	              React.createElement(InputField, {name: "leadTime", 
+	                value: this.state.leadTime, 
+	                type: "number", 
+	                title: "Lead Time *", 
+	                description: "How many business days can you wait for your board to be manufactured?", 
+	                onChange: this.handleChange}), 
+	              React.createElement("div", {className: "product-info-clear"})
+	            ), 
 
 	            React.createElement("div", {className: "wrapper"}, 
 	              React.createElement("button", {className: "go-button", 
@@ -702,7 +709,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Helvetica, Arial; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 0 0 20px 0; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 120px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.go-button {\n  font-size: 1.4em;\n  color: white;\n  margin-top: 20px;\n  padding: 10px 0;\n  border-radius: 2px;\n  width: 100%;\n  background: #0C0;\n  outline: none;\n  border: none; }\n\n.go-button:active {\n  background: #0A0; }\n\nbody {\n  background: #505768; }\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Helvetica, Arial; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 0 0 20px 0; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 120px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.product-info-clear {\n  clear: both; }\n\n.product-info-section {\n  margin-top: 20px;\n  border-top: 1px solid rgba(255, 255, 255, 0.1); }\n\n.go-button {\n  font-size: 1.4em;\n  color: white;\n  margin-top: 20px;\n  padding: 10px 0;\n  border-radius: 2px;\n  width: 100%;\n  background: #0C0;\n  outline: none;\n  border: none; }\n\n.go-button:active {\n  background: #0A0; }\n\nbody {\n  background: #505768; }\n", ""]);
 
 /***/ },
 /* 7 */,
@@ -30885,7 +30892,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, ".input-field label {\n  display: block;\n  font-weight: 600;\n  font-size: .9em;\n  margin-top: 10px; }\n\n.input-field input {\n  display: block;\n  font-size: .9em;\n  margin-top: 5px;\n  padding: 3px 6px;\n  border-radius: 2px;\n  border: none; }\n\n.input-field__desc {\n  font-size: .8em;\n  font-weight: 300; }\n", ""]);
+	exports.push([module.id, ".input-field {\n  float: left;\n  padding-right: 20px; }\n\n.input-field label {\n  display: block;\n  font-weight: 600;\n  font-size: .9em;\n  margin-top: 10px; }\n\n.input-field input {\n  display: block;\n  font-size: .9em;\n  margin-top: 5px;\n  padding: 3px 6px;\n  border-radius: 2px;\n  border: none; }\n\n.input-field__desc {\n  font-size: .8em;\n  font-weight: 300; }\n", ""]);
 
 /***/ }
 /******/ ]);

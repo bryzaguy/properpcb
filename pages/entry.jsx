@@ -29,40 +29,47 @@ module.exports = React.createClass({
           <form className="product-info">
             <h2>Compare PCB prices from top venders.</h2>
 
-            <InputField name="layers"
-              value={this.state.layers}
-              type="number"
-              title="Layers *"
-              description="How many layers are in your design?"
-              onChange={this.handleChange} />
+            <div className="product-info-section">
+              <InputField name="layers"
+                value={this.state.layers}
+                type="number"
+                title="Layers *"
+                description="How many layers are in your design?"
+                onChange={this.handleChange} />
+              <div className="product-info-clear" />
+            </div>
+            <div className="product-info-section">
+              <InputField name="boardWidth"
+                value={this.state.boardWidth} 
+                type="number"
+                title="X Dimension (inches) *"
+                description="How wide is your board?"
+                onChange={this.handleChange}/>
 
-            <InputField name="boardWidth"
-              value={this.state.boardWidth} 
-              type="number"
-              title="X Dimension (inches) *"
-              description="How wide is your board?"
-              onChange={this.handleChange}/>
+              <InputField name="boardHeight"
+                value={this.state.boardHeight} 
+                type="number"
+                title="Y Dimension (inches) *"
+                description="How tall is your board?"
+                onChange={this.handleChange}/>
+              <div className="product-info-clear" />
+            </div>
+            <div className="product-info-section">
+              <InputField name="quantity"
+                value={this.state.quantity} 
+                type="number"
+                title="Quantity *"
+                description="How many boards do you need?"
+                onChange={this.handleChange}/>
 
-            <InputField name="boardHeight"
-              value={this.state.boardHeight} 
-              type="number"
-              title="Y Dimension (inches) *"
-              description="How tall is your board?"
-              onChange={this.handleChange}/>
-
-            <InputField name="quantity"
-              value={this.state.quantity} 
-              type="number"
-              title="Quantity *"
-              description="How many boards do you need?"
-              onChange={this.handleChange}/>
-
-            <InputField name="leadTime"
-              value={this.state.leadTime} 
-              type="number"
-              title="Lead Time *"
-              description="How many business days can you wait for your board to be manufactured?"
-              onChange={this.handleChange}/>
+              <InputField name="leadTime"
+                value={this.state.leadTime} 
+                type="number"
+                title="Lead Time *"
+                description="How many business days can you wait for your board to be manufactured?"
+                onChange={this.handleChange}/>
+              <div className="product-info-clear" />
+            </div>
 
             <div className="wrapper">
               <button className="go-button" 
