@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3d255ed180179264f0e8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a939cda4bc900f6271d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -535,7 +535,7 @@
 	var React = __webpack_require__(4),
 	  Entry = __webpack_require__(1),
 	  Results = __webpack_require__(2),
-	  Contact = __webpack_require__(3);
+	  Footer = __webpack_require__(185);
 
 	__webpack_require__(5);
 
@@ -543,20 +543,19 @@
 	  getInitialState: function () {
 	    return {};
 	  },
-	  submit: function (values) {
-	    console.log(values);
+	  submit: function (request) {
 	    this.setState({
-	      values: values
+	      quoteRequest: request
 	    });
 	  },
 	  render: function () {
 	    var page;
-	    if (this.state.values) {
+	    if (this.state.quoteRequest) {
 	      page = React.createElement(Results, {handleGo: this.submit});
 	    } else {
 	      page = React.createElement(Entry, {handleGo: this.submit});
 	    }
-	    return React.createElement("div", null, page, React.createElement(Contact, null));
+	    return React.createElement("div", null, page, React.createElement(Footer, null));
 	  }
 	});
 
@@ -568,7 +567,7 @@
 
 	var React = __webpack_require__(4),
 	  Header = __webpack_require__(176),
-	  VideoBg = __webpack_require__(179);
+	  InputField = __webpack_require__(184);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  getInitialState: function () {
@@ -576,24 +575,17 @@
 	      boardWidth: 4,
 	      boardHeight: 8,
 	      quantity: 10,
-	      leadTime: ''
+	      leadTime: 5,
+	      layers: 2
 	    };
 	  },
 	  go: function (e) {
 	    e.preventDefault();
-	    this.props.handleGo({
-	      values: {
-	        boardWidth: this.state.boardWidth,
-	        boardHeight: this.state.boardHeight,
-	        quantity: this.state.quantity,
-	        leadTime: this.state.leadTime
-	      },
-	      submitted: true
-	    });
+	    this.props.handleGo(this.state);
 	  },
-	  handleChange: function (e) {
-	    var prop = {}, id = e.target.id;
-	    prop[id] = e.target.value;
+	  handleChange: function (name, value) {
+	    var prop = {};
+	    prop[name] = value;
 	    this.setState(prop);
 	  },
 	  render: function () {
@@ -603,38 +595,42 @@
 	        React.createElement("div", {className: "container"}, 
 	          React.createElement("form", {className: "product-info"}, 
 	            React.createElement("h2", null, "Compare PCB prices from top venders."), 
-	            React.createElement("label", null, "Please enter board size (inches):"), 
-	            React.createElement("br", null), 
-	            React.createElement("input", {className: "input-thin", 
-	              id: "boardWidth", 
-	              value: this.state.boardWidth, 
-	              onChange: this.handleChange}), " X",  
-	            React.createElement("input", {className: "input-thin", 
-	              id: "boardHeight", 
-	              value: this.state.boardHeight, 
+
+	            React.createElement(InputField, {name: "layers", 
+	              value: this.state.layers, 
+	              type: "number", 
+	              title: "Layers *", 
+	              description: "How many layers are in your design?", 
 	              onChange: this.handleChange}), 
-	            React.createElement("br", null), 
-	            React.createElement("div", {className: "float-input float-input-left"}, 
-	              React.createElement("label", null, "Quantity:"), 
-	              React.createElement("br", null), 
-	              React.createElement("input", {className: "input-thin", 
-	                id: "quantity", 
-	                value: this.state.quantity, 
-	                onChange: this.handleChange})
-	            ), 
-	            React.createElement("div", {className: "float-input float-input-right"}, 
-	              React.createElement("label", null, "Lead Time:"), 
-	              React.createElement("br", null), 
-	              React.createElement("select", {className: "input-thin", 
-	                id: "leadTime", 
-	                value: this.state.leadTime, 
-	                onChange: this.handleChange}, 
-	                React.createElement("option", {value: ""}, "Any"), 
-	                React.createElement("option", {value: "7"}, "1 Week"), 
-	                React.createElement("option", {value: "14"}, "2 Weeks")
-	              )
-	            ), 
-	            React.createElement("br", null), 
+
+	            React.createElement(InputField, {name: "boardWidth", 
+	              value: this.state.boardWidth, 
+	              type: "number", 
+	              title: "X Dimension (inches) *", 
+	              description: "How wide is your board?", 
+	              onChange: this.handleChange}), 
+
+	            React.createElement(InputField, {name: "boardHeight", 
+	              value: this.state.boardHeight, 
+	              type: "number", 
+	              title: "Y Dimension (inches) *", 
+	              description: "How tall is your board?", 
+	              onChange: this.handleChange}), 
+
+	            React.createElement(InputField, {name: "quantity", 
+	              value: this.state.quantity, 
+	              type: "number", 
+	              title: "Quantity *", 
+	              description: "How many boards do you need?", 
+	              onChange: this.handleChange}), 
+
+	            React.createElement(InputField, {name: "leadTime", 
+	              value: this.state.leadTime, 
+	              type: "number", 
+	              title: "Lead Time *", 
+	              description: "How many business days can you wait for your board to be manufactured?", 
+	              onChange: this.handleChange}), 
+
 	            React.createElement("div", {className: "wrapper"}, 
 	              React.createElement("button", {className: "go-button", 
 	                onClick: this.go}, 
@@ -642,8 +638,7 @@
 	              )
 	            )
 	          )
-	        ), 
-	        React.createElement(VideoBg, null)
+	        )
 	      )
 	    );
 	  }
@@ -669,21 +664,7 @@
 	});
 
 /***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(4);
-
-	__webpack_require__(7);
-
-	module.exports = React.createClass({displayName: "module.exports",
-	  render: function () {
-	    return React.createElement("div", {className: "contact-footer"}, React.createElement("a", {href: "mailto:support@properpcb.com"}, "Contact"));
-	  }
-	});
-
-
-/***/ },
+/* 3 */,
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -721,42 +702,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\n.float-input {\n  float: left;\n  padding: 20px 0; }\n\n.float-input-left {\n  padding: 20px 20px 20px 30px; }\n\n.input-thin {\n  width: 150px;\n  font-size: 20px;\n  height: 40px;\n  border-radius: 2px;\n  border: none;\n  margin: 10px 20px;\n  outline: none;\n  padding: 0 15px; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 30px 0; }\n\n.product-info label {\n  line-height: 2px; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  font-family: Helvetica, Arial;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 120px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.wrapper {\n  clear: both;\n  padding: 0 0 30px 0; }\n\n.go-button {\n  width: 360px;\n  color: white;\n  font-size: 20px;\n  background: #0C0;\n  font-family: Helvetica, Arial;\n  padding: 20px;\n  outline: none;\n  border: none; }\n\n.go-button:active {\n  background: #0A0; }\n\nbody {\n  background: #000; }\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Helvetica, Arial; }\n\n.product-info h2 {\n  font-family: 'Slabo 27px', serif;\n  margin: 0 0 20px 0; }\n\n.product-info {\n  position: absolute;\n  color: white;\n  background: rgba(35, 39, 46, 0.5);\n  border: solid 1px rgba(255, 255, 255, 0.1);\n  left: calc(50% - 250px);\n  top: 120px;\n  padding: 20px 20px;\n  width: 500px; }\n\n.go-button {\n  font-size: 1.4em;\n  color: white;\n  margin-top: 20px;\n  padding: 10px 0;\n  border-radius: 2px;\n  width: 100%;\n  background: #0C0;\n  outline: none;\n  border: none; }\n\n.go-button:active {\n  background: #0A0; }\n\nbody {\n  background: #505768; }\n", ""]);
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(8);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(11)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(true) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept(8, function() {
-				var newContent = __webpack_require__(8);
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, ".contact-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 15px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, #23272e, rgba(80, 87, 104, 0.2));\n  background: linear-gradient(to top, #23272e, rgba(80, 87, 104, 0.2));\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.contact-footer a:link {\n  font-family: Helvetica, Arial;\n  color: white;\n  text-decoration: none; }\n", ""]);
-
-/***/ },
+/* 7 */,
+/* 8 */,
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1106,7 +1056,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  background: rgba(102, 111, 133, 0.5);\n  height: 100%;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 /***/ },
 /* 15 */
@@ -30793,61 +30743,9 @@
 	exports.push([module.id, ".splash-header {\n  background: -webkit-linear-gradient(bottom, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  background: linear-gradient(to top, rgba(128, 137, 157, 0.3), rgba(35, 39, 46, 0.5));\n  border-bottom: solid 1px rgba(255, 255, 255, 0.3);\n  position: fixed;\n  width: 100%;\n  height: auto; }\n\n.logo {\n  margin: 20px;\n  height: 53px; }\n", ""]);
 
 /***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(4);
-
-	__webpack_require__(180);
-
-	module.exports = React.createClass({displayName: "module.exports",
-	  render: function () {
-	    return (
-	      React.createElement("div", null, 
-	        React.createElement("div", {className: "tint-overlay"}), 
-	        React.createElement("div", {id: "siteWrapper", className: "clearfix"}, 
-	          React.createElement("video", {autoPlay: true, loop: true, id: "bgvid"}, 
-	            React.createElement("source", {src: "http://www.piedpiper.com/assets/whiteboard-drawing-01.mp4", type: "video/mp4"})
-	          )
-	        )
-	      ));
-	  }
-	})
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(181);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(11)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(true) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept(181, function() {
-				var newContent = __webpack_require__(181);
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, ".tint-overlay {\n  position: fixed;\n  background-color: #3A3E49;\n  top: 0;\n  left: 0;\n  opacity: .50;\n  z-index: -90;\n  width: 100%;\n  height: 100%; }\n\nvideo#bgvid {\n  position: fixed;\n  left: 0;\n  top: 0;\n  background-size: cover;\n  width: 100%;\n  height: 100%;\n  z-index: -100; }\n", ""]);
-
-/***/ },
+/* 179 */,
+/* 180 */,
+/* 181 */,
 /* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30878,7 +30776,116 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(18)();
-	exports.push([module.id, ".container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  text-align: center; }\n", ""]);
+	exports.push([module.id, ".container {\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n", ""]);
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(4);
+
+	__webpack_require__(190);
+
+	module.exports = React.createClass({displayName: "module.exports",
+	  handleChange: function (e) {
+	    this.props.onChange(this.props.name, e.target.value);
+	  },
+	  render: function () {
+	    var props = this.props;
+	    return (React.createElement("div", {className: "input-field"}, 
+	        React.createElement("label", null, props.title), 
+	        React.createElement("div", {className: "input-field__desc"}, 
+	          props.description
+	        ), 
+	        React.createElement("input", {type: props.type || 'text', 
+	          value: this.props.value, 
+	          onChange: this.handleChange})
+	      ));
+	  }
+	})
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(4);
+
+	__webpack_require__(186);
+
+	module.exports = React.createClass({displayName: "module.exports",
+	  render: function () {
+	    return React.createElement("div", {className: "footer"}, React.createElement("a", {href: "mailto:support@properpcb.com"}, "Contact"));
+	  }
+	});
+
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(187);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(11)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(187, function() {
+				var newContent = __webpack_require__(187);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(18)();
+	exports.push([module.id, ".footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 15px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  background: linear-gradient(to top, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.footer a:link {\n  color: white;\n  text-decoration: none; }\n", ""]);
+
+/***/ },
+/* 188 */,
+/* 189 */,
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(191);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(11)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(191, function() {
+				var newContent = __webpack_require__(191);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(18)();
+	exports.push([module.id, ".input-field label {\n  display: block;\n  font-weight: 600;\n  font-size: .9em;\n  margin-top: 10px; }\n\n.input-field input {\n  display: block;\n  font-size: .9em;\n  margin-top: 5px;\n  padding: 3px 6px;\n  border-radius: 2px;\n  border: none; }\n\n.input-field__desc {\n  font-size: .8em;\n  font-weight: 300; }\n", ""]);
 
 /***/ }
 /******/ ]);
