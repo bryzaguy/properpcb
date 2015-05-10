@@ -1,7 +1,7 @@
 var React = require('react'),
   Entry = require('./pages/entry.jsx'),
   Results = require('./pages/results.jsx'),
-  Contact = require('./pages/contact.jsx');
+  Footer = require('./pages/footer.jsx');
 
 require('./app.scss');
 
@@ -9,20 +9,19 @@ var App = React.createClass({
   getInitialState: function () {
     return {};
   },
-  submit: function (values) {
-    console.log(values);
+  submit: function (request) {
     this.setState({
-      values: values
+      quoteRequest: request
     });
   },
   render: function () {
     var page;
-    if (this.state.values) {
+    if (this.state.quoteRequest) {
       page = <Results handleGo={this.submit} />;
     } else {
       page = <Entry handleGo={this.submit} />;
     }
-    return <div>{page}<Contact /></div>;
+    return <div>{page}<Footer /></div>;
   }
 });
 
