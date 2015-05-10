@@ -5,7 +5,7 @@ require('./sidepanel.scss');
 module.exports = React.createClass({
   render: function () {
     return (<div className="side-panel">
-        <img src="properlogo.png" />
+        <img className="logo-letter" src="properlogo.png" />
         <form>
           <div>
             <label>

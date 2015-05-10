@@ -12,13 +12,12 @@ var App = React.createClass({
   submit: function (values) {
     console.log(values);
     this.setState({
-      values: values,
-      submitted: true
+      values: values
     });
   },
   render: function () {
     var page;
-    if (this.state.submitted) {
+    if (this.state.values) {
       page = <Results handleGo={this.submit} />;
     } else {
       page = <Entry handleGo={this.submit} />;

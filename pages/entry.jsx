@@ -1,4 +1,6 @@
-var React = require('react');
+var React = require('react'),
+  Header = require('./header.jsx'),
+  VideoBg = require('./videoBg.jsx');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -8,26 +10,6 @@ module.exports = React.createClass({
       quantity: 10,
       leadTime: ''
     };
-  },
-  widthChange: function(e) {
-    this.setState({
-      boardWidth: e.target.value
-    });
-  },
-  heightChange: function(e) {
-    this.setState({
-      boardHeight: e.target.value
-    });
-  },
-  leadChange: function(e) {
-    this.setState({
-      leadTime: e.target.value
-    });
-  },
-  quantityChange: function(e) {
-    this.setState({
-      quantity: e.target.value
-    });
   },
   go: function (e) {
     e.preventDefault();
@@ -41,38 +23,44 @@ module.exports = React.createClass({
       submitted: true
     });
   },
+  handleChange: function (e) {
+    var prop = {}, id = e.target.id;
+    prop[id] = e.target.value;
+    this.setState(prop);
+  },
   render: function () {
     return (
       <div>
-        <div className="splash-header">
-          <img className="logo" src="/properpcb_logo.png" />
-        </div>
+        <Header />
         <div className="container">
           <form className="product-info">
             <h2>Compare PCB prices from top venders.</h2>
             <label>Please enter board size (inches):</label>
             <br />
             <input className="input-thin" 
-                    value={this.state.boardWidth}
-                    onChange={this.widthChange} /> X 
+              id="boardWidth"
+              value={this.state.boardWidth}
+              onChange={this.handleChange} /> X 
             <input className="input-thin" 
-                    value={this.state.boardHeight}
-                    onChange={this.heightChange} />
+              id="boardHeight"
+              value={this.state.boardHeight}
+              onChange={this.handleChange} />
             <br />
             <div className="float-input float-input-left">
               <label>Quantity:</label>
               <br />
               <input className="input-thin" 
-                    value={this.state.quantity}
-                    onChange={this.quantityChange}
-                    ref="quantity" />
+                id="quantity"
+                value={this.state.quantity}
+                onChange={this.handleChange} />
             </div>
             <div className="float-input float-input-right">
               <label>Lead Time:</label>
               <br />
               <select className="input-thin" 
-                    value={this.state.leadTime} 
-                    onChange={this.leadChange}>
+                id="leadTime"
+                value={this.state.leadTime} 
+                onChange={this.handleChange}>
                 <option value="">Any</option>
                 <option value="7">1 Week</option>
                 <option value="14">2 Weeks</option>
@@ -81,18 +69,13 @@ module.exports = React.createClass({
             <br />
             <div className="wrapper">
               <button className="go-button" 
-                      onClick={this.go}>
-                      <strong>Go</strong>
+                onClick={this.go}>
+                <strong>Go</strong>
               </button>
             </div>
           </form>
         </div>
-        <div className="tint-overlay"></div>
-        <div id="siteWrapper" className="clearfix">
-          <video autoPlay loop id="bgvid">
-            <source src="http://www.piedpiper.com/assets/whiteboard-drawing-01.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <VideoBg />
       </div>
     );
   }
