@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "090ffc63b10c20efad94"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a1ca15716e433f8080ec"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -567,7 +567,7 @@
 
 	var React = __webpack_require__(4),
 	  Header = __webpack_require__(176),
-	  InputField = __webpack_require__(184);
+	  MainQuoteForm = __webpack_require__(192);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  getInitialState: function () {
@@ -575,17 +575,18 @@
 	      boardWidth: 4,
 	      boardHeight: 8,
 	      quantity: 10,
-	      leadTime: 5,
-	      layers: 2
+	      leadTimeDays: 5,
+	      boardLayers: 2
 	    };
 	  },
 	  go: function (e) {
 	    e.preventDefault();
+	    console.log(this.state);
 	    this.props.handleGo(this.state);
 	  },
-	  handleChange: function (name, value) {
+	  onChange: function (e) {
 	    var prop = {};
-	    prop[name] = value;
+	    prop[e.target.id] = e.target.value;
 	    this.setState(prop);
 	  },
 	  render: function () {
@@ -593,51 +594,10 @@
 	      React.createElement("div", null, 
 	        React.createElement(Header, null), 
 	        React.createElement("div", {className: "container"}, 
-	          React.createElement("form", {className: "product-info"}, 
+	          React.createElement("div", {className: "product-info"}, 
 	            React.createElement("h2", null, "Compare PCB prices from top venders."), 
-
-	            React.createElement("div", {className: "product-info-section"}, 
-	              React.createElement(InputField, {name: "layers", 
-	                value: this.state.layers, 
-	                type: "number", 
-	                title: "Layers *", 
-	                description: "How many layers are in your design?", 
-	                onChange: this.handleChange}), 
-	              React.createElement("div", {className: "product-info-clear"})
-	            ), 
-	            React.createElement("div", {className: "product-info-section"}, 
-	              React.createElement(InputField, {name: "boardWidth", 
-	                value: this.state.boardWidth, 
-	                type: "number", 
-	                title: "X Dimension (inches) *", 
-	                description: "How wide is your board?", 
-	                onChange: this.handleChange}), 
-
-	              React.createElement(InputField, {name: "boardHeight", 
-	                value: this.state.boardHeight, 
-	                type: "number", 
-	                title: "Y Dimension (inches) *", 
-	                description: "How tall is your board?", 
-	                onChange: this.handleChange}), 
-	              React.createElement("div", {className: "product-info-clear"})
-	            ), 
-	            React.createElement("div", {className: "product-info-section"}, 
-	              React.createElement(InputField, {name: "quantity", 
-	                value: this.state.quantity, 
-	                type: "number", 
-	                title: "Quantity *", 
-	                description: "How many boards do you need?", 
-	                onChange: this.handleChange}), 
-
-	              React.createElement(InputField, {name: "leadTime", 
-	                value: this.state.leadTime, 
-	                type: "number", 
-	                title: "Lead Time *", 
-	                description: "How many business days can you wait for your board to be manufactured?", 
-	                onChange: this.handleChange}), 
-	              React.createElement("div", {className: "product-info-clear"})
-	            ), 
-
+	            React.createElement(MainQuoteForm, React.__spread({},  this.state, 
+	              {onChange: this.onChange})), 
 	            React.createElement("div", {className: "wrapper"}, 
 	              React.createElement("button", {className: "go-button", 
 	                onClick: this.go}, 
@@ -30794,9 +30754,6 @@
 	__webpack_require__(190);
 
 	module.exports = React.createClass({displayName: "module.exports",
-	  handleChange: function (e) {
-	    this.props.onChange(this.props.name, e.target.value);
-	  },
 	  render: function () {
 	    var props = this.props;
 	    return (React.createElement("div", {className: "input-field"}, 
@@ -30804,9 +30761,10 @@
 	        React.createElement("div", {className: "input-field__desc"}, 
 	          props.description
 	        ), 
-	        React.createElement("input", {type: props.type || 'text', 
+	        React.createElement("input", {id: props.id, 
+	          type: props.type || 'text', 
 	          value: this.props.value, 
-	          onChange: this.handleChange})
+	          onChange: this.props.onChange})
 	      ));
 	  }
 	})
@@ -30893,6 +30851,59 @@
 
 	exports = module.exports = __webpack_require__(18)();
 	exports.push([module.id, ".input-field {\n  float: left;\n  padding-right: 20px; }\n\n.input-field label {\n  display: block;\n  font-weight: 600;\n  font-size: .9em;\n  margin-top: 10px; }\n\n.input-field input {\n  display: block;\n  font-size: .9em;\n  margin-top: 5px;\n  padding: 3px 6px;\n  border-radius: 2px;\n  border: none; }\n\n.input-field__desc {\n  font-size: .8em;\n  font-weight: 300; }\n", ""]);
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(4),
+	  InputField = __webpack_require__(184);
+
+	module.exports = React.createClass({displayName: "module.exports",
+	  render: function () {
+	    return (React.createElement("div", null, 
+	              React.createElement("div", {className: "product-info-section"}, 
+	                React.createElement(InputField, {id: "boardLayers", 
+	                  value: this.props.boardLayers, 
+	                  type: "number", 
+	                  title: "Layers *", 
+	                  description: "How many layers are in your design?", 
+	                  onChange: this.props.onChange}), 
+	                React.createElement("div", {className: "product-info-clear"})
+	              ), 
+	              React.createElement("div", {className: "product-info-section"}, 
+	                React.createElement(InputField, {id: "boardWidth", 
+	                  value: this.props.boardWidth, 
+	                  type: "number", 
+	                  title: "X Dimension (inches) *", 
+	                  description: "How wide is your board?", 
+	                  onChange: this.props.onChange}), 
+	                React.createElement(InputField, {id: "boardHeight", 
+	                  value: this.props.boardHeight, 
+	                  type: "number", 
+	                  title: "Y Dimension (inches) *", 
+	                  description: "How tall is your board?", 
+	                  onChange: this.props.onChange}), 
+	                React.createElement("div", {className: "product-info-clear"})
+	              ), 
+	              React.createElement("div", {className: "product-info-section"}, 
+	                React.createElement(InputField, {id: "quantity", 
+	                  value: this.props.quantity, 
+	                  type: "number", 
+	                  title: "Quantity *", 
+	                  description: "How many boards do you need?", 
+	                  onChange: this.props.onChange}), 
+	                React.createElement(InputField, {id: "leadTimeDays", 
+	                  value: this.props.leadTimeDays, 
+	                  type: "number", 
+	                  title: "Lead Time *", 
+	                  description: "How many business days can you wait for your board to be manufactured?", 
+	                  onChange: this.props.onChange}), 
+	                React.createElement("div", {className: "product-info-clear"})
+	              )
+	            ));
+	  }
+	});
 
 /***/ }
 /******/ ]);

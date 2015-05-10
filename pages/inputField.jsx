@@ -3,9 +3,6 @@ var React = require('react');
 require('./inputField.scss');
 
 module.exports = React.createClass({
-  handleChange: function (e) {
-    this.props.onChange(this.props.name, e.target.value);
-  },
   render: function () {
     var props = this.props;
     return (<div className="input-field">
@@ -13,9 +10,10 @@ module.exports = React.createClass({
         <div className="input-field__desc">
           {props.description}
         </div>
-        <input type={props.type || 'text'}
+        <input id={props.id}
+          type={props.type || 'text'}
           value={this.props.value}
-          onChange={this.handleChange} />
+          onChange={this.props.onChange} />
       </div>);
   }
 })
