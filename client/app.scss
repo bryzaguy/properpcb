@@ -4,6 +4,7 @@
 body {
   margin: 0;
   padding: 0;
+  color: white;
   font-family: Helvetica, Arial;
 }
 .product-info h2 {
@@ -26,20 +27,6 @@ body {
 .product-info-section {
   margin-top: 20px;
   border-top: 1px solid hsla(255, 100%, 100%, .1);
-}
-.go-button {
-  font-size: 1.4em;
-  color: white;
-  margin-top: 20px;
-  padding: 10px 0;
-  border-radius: 2px;
-  width: 100%;
-  background: #0C0;
-  outline: none;
-  border: none;
-}
-.go-button:active {
-  background: #0A0;
 }
 body {
   background: hsla(222, 13%, 36%, 1);

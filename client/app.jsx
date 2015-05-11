@@ -1,8 +1,7 @@
 'use strict';
 
 var React = require('react'),
-  Entry = require('./entry.jsx'),
-  Results = require('./results.jsx'),
+  RouteHandler = require('react-router').RouteHandler,
   Footer = require('./footer.jsx');
 
 require('./app.scss');
@@ -17,12 +16,10 @@ module.exports = React.createClass({
     });
   },
   render: function () {
-    var page;
-    if (this.state.quoteRequest) {
-      page = <Results handleGo={this.submit} />;
-    } else {
-      page = <Entry handleGo={this.submit} />;
-    }
-    return <div>{page}<Footer /></div>;
+    return (<div>
+      <RouteHandler submit={this.submit}
+        {...this.state.quoteRequest} />
+      <Footer />
+    </div>);
   }
 });

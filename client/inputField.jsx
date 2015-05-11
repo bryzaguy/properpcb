@@ -7,9 +7,10 @@ module.exports = React.createClass({
     var props = this.props;
     return (<div className="input-field">
         <label>{props.title}</label>
-        <div className="input-field__desc">
-          {props.description}
-        </div>
+        {props.description &&
+          <div className="input-field__desc">
+            {props.description}
+          </div>}
         <input id={props.id}
           type={props.type || 'text'}
           value={this.props.value}

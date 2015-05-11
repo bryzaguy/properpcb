@@ -7,7 +7,7 @@ require('./results.scss');
 module.exports = React.createClass({
   render: function () {
     return (<div className="container">
-      <SidePanel />
+      <SidePanel {...this.props} />
       <ResultView />
     </div>);
   }

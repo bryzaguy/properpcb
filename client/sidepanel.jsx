@@ -1,34 +1,25 @@
-var React = require('react');
+var React = require('react'),
+  QuoteSide = require('./quoteSide.jsx');
 
 require('./sidepanel.scss');
 
 module.exports = React.createClass({
+  getInitialState: function () {
+    return this.props;
+  },
+  submit: function (e) {
+    this.props.submit(this.state);
+  },
+  onChange: function (e) {
+    var prop = {};
+    prop[e.target.id] = e.target.value;
+    this.setState(prop);
+  },
   render: function () {
     return (<div className="side-panel">
         <img className="logo-letter" src="properlogo.png" />
-        <form>
-          <div>
-            <label>
-              <span>Quantity: 10</span>
-              <br />
-              <input type="range" />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span>Lead Time: 5</span>
-              <br />
-              <input type="range" />
-            </label>
-          </div>
-          <div>
-            <label>
-              <span>Rating: 4</span>
-              <br />
-              <input type="range" />
-            </label>
-          </div>
-        </form>
+        <QuoteSide {...this.state}
+          onChange={this.onChange} />
       </div>);
   }
 });

@@ -1,6 +1,10 @@
 var React = require('react'),
   Header = require('./header.jsx'),
-  MainQuoteForm = require('./mainQuoteForm.jsx');
+  QuoteMain = require('./quoteMain.jsx'),
+  RouteHandler = require('react-router').RouteHandler,
+  Link = require('react-router').Link;
+
+require('./quote.scss');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -9,18 +13,28 @@ module.exports = React.createClass({
       boardHeight: 8,
       quantity: 10,
       leadTimeDays: 5,
-      boardLayers: 2
+      boardLayers: 2,
+      traceWidth: 8,
+      traceSpacing: 8,
+      outCopperPour: 1,
+      innerCopperPour: 1,
+      minDrillDiameter: 16,
+      minAnnularRingRadius: 8,
+      electricalTest: true,
+      boardMaterial: "FR4",
+      boardFinish: "HASL",
+      silkScreen: ["Top Layer"],
+      soldermask: true
     };
-  },
-  go: function (e) {
-    e.preventDefault();
-    console.log(this.state);
-    this.props.handleGo(this.state);
   },
   onChange: function (e) {
     var prop = {};
     prop[e.target.id] = e.target.value;
     this.setState(prop);
+  },
+  submit: function () {
+    this.props.submit(this.state);
+    window.location.href = '/#/results';
   },
   render: function () {
     return (
@@ -29,11 +43,11 @@ module.exports = React.createClass({
         <div className="container">
           <div className="product-info">
             <h2>Compare PCB prices from top venders.</h2>
-            <MainQuoteForm {...this.state}
+            <RouteHandler {...this.state}
               onChange={this.onChange} />
             <div className="wrapper">
-              <button className="go-button" 
-                onClick={this.go}>
+              <button onClick={this.submit}
+                className="go-button">
                 <strong>Go</strong>
               </button>
             </div>

@@ -1,5 +1,6 @@
 var React = require('react'),
-  InputField = require('./inputField.jsx');
+  InputField = require('./inputField.jsx'),
+  Link = require('react-router').Link;
 
 module.exports = React.createClass({
   render: function () {
@@ -42,6 +43,8 @@ module.exports = React.createClass({
                   description="How many business days can you wait for your board to be manufactured?"
                   onChange={this.props.onChange}/>
                 <div className="product-info-clear" />
+                <br />
+                <Link to="quote-step2">More Options</Link>
               </div>
             </div>);
   }
