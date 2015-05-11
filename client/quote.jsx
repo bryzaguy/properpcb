@@ -16,7 +16,7 @@ module.exports = React.createClass({
       boardLayers: 2,
       traceWidth: 8,
       traceSpacing: 8,
-      outCopperPour: 1,
+      outerCopperPour: 1,
       innerCopperPour: 1,
       minDrillDiameter: 16,
       minAnnularRingRadius: 8,

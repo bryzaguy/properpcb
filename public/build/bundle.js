@@ -97,7 +97,7 @@
 	      boardLayers: 2,
 	      traceWidth: 8,
 	      traceSpacing: 8,
-	      outCopperPour: 1,
+	      outerCopperPour: 1,
 	      innerCopperPour: 1,
 	      minDrillDiameter: 16,
 	      minAnnularRingRadius: 8,
@@ -538,9 +538,9 @@
 
 	var React = __webpack_require__(7),
 	  $ = __webpack_require__(54),
-	  ResultItem = __webpack_require__(27);
+	  ResultItem = __webpack_require__(29);
 
-	__webpack_require__(28);
+	__webpack_require__(30);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  getInitialState: function () {
@@ -568,7 +568,7 @@
 
 	var React = __webpack_require__(7);
 
-	__webpack_require__(30);
+	__webpack_require__(27);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  render: function () {
@@ -818,6 +818,39 @@
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(28);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(33)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/autoprefixer-loader/index.js!./../node_modules/sass-loader/index.js!./footer.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/autoprefixer-loader/index.js!./../node_modules/sass-loader/index.js!./footer.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(59)();
+	exports.push([module.id, ".footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 15px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  background: linear-gradient(to top, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.footer a:link {\n  color: white;\n  text-decoration: none; }\n", ""]);
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var React = __webpack_require__(7);
 	__webpack_require__(55)
 
@@ -840,13 +873,13 @@
 	});
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(29);
+	var content = __webpack_require__(31);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(33)(content, {});
@@ -866,44 +899,11 @@
 	}
 
 /***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(59)();
-	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  height: 100%;\n  width: 100%; }\n", ""]);
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(31);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(33)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/autoprefixer-loader/index.js!./../node_modules/sass-loader/index.js!./footer.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/autoprefixer-loader/index.js!./../node_modules/sass-loader/index.js!./footer.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
 /* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(59)();
-	exports.push([module.id, ".footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background: #3A3E49;\n  padding: 15px;\n  text-align: center;\n  background: -webkit-linear-gradient(bottom, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  background: linear-gradient(to top, rgba(35, 39, 46, 0.5), rgba(80, 87, 104, 0.5));\n  border-top: solid 1px rgba(255, 255, 255, 0.3); }\n\n.footer a:link {\n  color: white;\n  text-decoration: none; }\n", ""]);
+	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 /***/ },
 /* 32 */
@@ -15545,7 +15545,7 @@
 
 	'use strict';
 
-	var ReactRootIndex = __webpack_require__(150);
+	var ReactRootIndex = __webpack_require__(140);
 
 	var invariant = __webpack_require__(80);
 
@@ -15883,27 +15883,27 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var DOMProperty = __webpack_require__(141);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactCurrentOwner = __webpack_require__(65);
 	var ReactElement = __webpack_require__(66);
 	var ReactElementValidator = __webpack_require__(67);
-	var ReactEmptyComponent = __webpack_require__(142);
+	var ReactEmptyComponent = __webpack_require__(143);
 	var ReactInstanceHandles = __webpack_require__(71);
 	var ReactInstanceMap = __webpack_require__(99);
-	var ReactMarkupChecksum = __webpack_require__(143);
+	var ReactMarkupChecksum = __webpack_require__(144);
 	var ReactPerf = __webpack_require__(73);
 	var ReactReconciler = __webpack_require__(75);
 	var ReactUpdateQueue = __webpack_require__(97);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var emptyObject = __webpack_require__(105);
-	var containsNode = __webpack_require__(145);
-	var getReactRootElementInContainer = __webpack_require__(146);
-	var instantiateReactComponent = __webpack_require__(147);
+	var containsNode = __webpack_require__(146);
+	var getReactRootElementInContainer = __webpack_require__(147);
+	var instantiateReactComponent = __webpack_require__(148);
 	var invariant = __webpack_require__(80);
-	var setInnerHTML = __webpack_require__(148);
-	var shouldUpdateReactComponent = __webpack_require__(149);
+	var setInnerHTML = __webpack_require__(149);
+	var shouldUpdateReactComponent = __webpack_require__(150);
 	var warning = __webpack_require__(83);
 
 	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
@@ -17366,12 +17366,12 @@
 
 	var ReactElement = __webpack_require__(66);
 	var ReactInstanceHandles = __webpack_require__(71);
-	var ReactMarkupChecksum = __webpack_require__(143);
+	var ReactMarkupChecksum = __webpack_require__(144);
 	var ReactServerRenderingTransaction =
 	  __webpack_require__(153);
 
 	var emptyObject = __webpack_require__(105);
-	var instantiateReactComponent = __webpack_require__(147);
+	var instantiateReactComponent = __webpack_require__(148);
 	var invariant = __webpack_require__(80);
 
 	/**
@@ -18978,7 +18978,7 @@
 	var ReactCurrentOwner = __webpack_require__(65);
 	var ReactElement = __webpack_require__(66);
 	var ReactInstanceMap = __webpack_require__(99);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 	var invariant = __webpack_require__(80);
@@ -19806,7 +19806,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 
 	var quoteAttributeValueForBrowser = __webpack_require__(158);
 	var warning = __webpack_require__(83);
@@ -20055,9 +20055,9 @@
 	'use strict';
 
 	var CSSPropertyOperations = __webpack_require__(159);
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 	var DOMPropertyOperations = __webpack_require__(109);
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactComponentBrowserEnvironment =
 	  __webpack_require__(110);
 	var ReactMount = __webpack_require__(72);
@@ -21109,7 +21109,7 @@
 	var EventPluginHub = __webpack_require__(166);
 	var EventPropagators = __webpack_require__(162);
 	var ExecutionEnvironment = __webpack_require__(58);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 	var SyntheticEvent = __webpack_require__(167);
 
 	var isEventSupported = __webpack_require__(161);
@@ -21709,7 +21709,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 	var ExecutionEnvironment = __webpack_require__(58);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
@@ -22019,7 +22019,7 @@
 
 	'use strict';
 
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 	var Transaction = __webpack_require__(170);
 
 	var assign = __webpack_require__(57);
@@ -22277,7 +22277,7 @@
 	var ReactPerf = __webpack_require__(73);
 
 	var invariant = __webpack_require__(80);
-	var setInnerHTML = __webpack_require__(148);
+	var setInnerHTML = __webpack_require__(149);
 
 	/**
 	 * Errors for properties that should not be updated with `updatePropertyById()`.
@@ -22494,7 +22494,7 @@
 	var ReactClass = __webpack_require__(63);
 	var ReactElement = __webpack_require__(66);
 	var ReactMount = __webpack_require__(72);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 	var invariant = __webpack_require__(80);
@@ -22727,7 +22727,7 @@
 	var ReactBrowserComponentMixin = __webpack_require__(120);
 	var ReactClass = __webpack_require__(63);
 	var ReactElement = __webpack_require__(66);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 
@@ -22910,7 +22910,7 @@
 	var ReactBrowserComponentMixin = __webpack_require__(120);
 	var ReactClass = __webpack_require__(63);
 	var ReactElement = __webpack_require__(66);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 	var invariant = __webpack_require__(80);
@@ -23053,7 +23053,7 @@
 	var PooledClass = __webpack_require__(94);
 	var ReactInstanceHandles = __webpack_require__(71);
 	var ReactMount = __webpack_require__(72);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 	var getEventTarget = __webpack_require__(176);
@@ -23234,17 +23234,17 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 	var EventPluginHub = __webpack_require__(166);
 	var ReactComponentEnvironment = __webpack_require__(178);
 	var ReactClass = __webpack_require__(63);
-	var ReactEmptyComponent = __webpack_require__(142);
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var ReactEmptyComponent = __webpack_require__(143);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactNativeComponent = __webpack_require__(106);
 	var ReactDOMComponent = __webpack_require__(111);
 	var ReactPerf = __webpack_require__(73);
-	var ReactRootIndex = __webpack_require__(150);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactRootIndex = __webpack_require__(140);
+	var ReactUpdates = __webpack_require__(145);
 
 	var ReactInjection = {
 	  Component: ReactComponentEnvironment.injection,
@@ -23283,7 +23283,7 @@
 
 	var CallbackQueue = __webpack_require__(179);
 	var PooledClass = __webpack_require__(94);
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactInputSelection = __webpack_require__(180);
 	var ReactPutListenerQueue = __webpack_require__(181);
 	var Transaction = __webpack_require__(170);
@@ -24127,7 +24127,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
@@ -24287,7 +24287,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(140);
+	var DOMProperty = __webpack_require__(141);
 	var ReactDefaultPerfAnalysis = __webpack_require__(192);
 	var ReactMount = __webpack_require__(72);
 	var ReactPerf = __webpack_require__(73);
@@ -24541,6 +24541,41 @@
 
 /***/ },
 /* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactRootIndex
+	 * @typechecks
+	 */
+
+	'use strict';
+
+	var ReactRootIndexInjection = {
+	  /**
+	   * @param {function} _createReactRootIndex
+	   */
+	  injectCreateReactRootIndex: function(_createReactRootIndex) {
+	    ReactRootIndex.createReactRootIndex = _createReactRootIndex;
+	  }
+	};
+
+	var ReactRootIndex = {
+	  createReactRootIndex: null,
+	  injection: ReactRootIndexInjection
+	};
+
+	module.exports = ReactRootIndex;
+
+
+/***/ },
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24842,7 +24877,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25199,7 +25234,7 @@
 
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25297,7 +25332,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25349,7 +25384,7 @@
 
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25634,7 +25669,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25682,7 +25717,7 @@
 
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25721,7 +25756,7 @@
 
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25739,7 +25774,7 @@
 	'use strict';
 
 	var ReactCompositeComponent = __webpack_require__(199);
-	var ReactEmptyComponent = __webpack_require__(142);
+	var ReactEmptyComponent = __webpack_require__(143);
 	var ReactNativeComponent = __webpack_require__(106);
 
 	var assign = __webpack_require__(57);
@@ -25862,7 +25897,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25955,7 +25990,7 @@
 
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26060,41 +26095,6 @@
 	module.exports = shouldUpdateReactComponent;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactRootIndex
-	 * @typechecks
-	 */
-
-	'use strict';
-
-	var ReactRootIndexInjection = {
-	  /**
-	   * @param {function} _createReactRootIndex
-	   */
-	  injectCreateReactRootIndex: function(_createReactRootIndex) {
-	    ReactRootIndex.createReactRootIndex = _createReactRootIndex;
-	  }
-	};
-
-	var ReactRootIndex = {
-	  createReactRootIndex: null,
-	  injection: ReactRootIndexInjection
-	};
-
-	module.exports = ReactRootIndex;
-
 
 /***/ },
 /* 151 */
@@ -26469,13 +26469,13 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(202);
+	var CSSProperty = __webpack_require__(204);
 	var ExecutionEnvironment = __webpack_require__(58);
 
-	var camelizeStyleName = __webpack_require__(203);
-	var dangerousStyleValue = __webpack_require__(204);
-	var hyphenateStyleName = __webpack_require__(205);
-	var memoizeStringOnly = __webpack_require__(206);
+	var camelizeStyleName = __webpack_require__(205);
+	var dangerousStyleValue = __webpack_require__(206);
+	var hyphenateStyleName = __webpack_require__(207);
+	var memoizeStringOnly = __webpack_require__(208);
 	var warning = __webpack_require__(83);
 
 	var processStyleName = memoizeStringOnly(function(styleName) {
@@ -26655,10 +26655,10 @@
 	'use strict';
 
 	var ReactComponentEnvironment = __webpack_require__(178);
-	var ReactMultiChildUpdateTypes = __webpack_require__(207);
+	var ReactMultiChildUpdateTypes = __webpack_require__(202);
 
 	var ReactReconciler = __webpack_require__(75);
-	var ReactChildReconciler = __webpack_require__(208);
+	var ReactChildReconciler = __webpack_require__(203);
 
 	/**
 	 * Updating children of a component may trigger recursive updates. The depth is
@@ -28353,7 +28353,7 @@
 
 	'use strict';
 
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 
 	var accumulateInto = __webpack_require__(209);
 	var forEachAccumulated = __webpack_require__(210);
@@ -28415,7 +28415,7 @@
 	'use strict';
 
 	var Danger = __webpack_require__(214);
-	var ReactMultiChildUpdateTypes = __webpack_require__(207);
+	var ReactMultiChildUpdateTypes = __webpack_require__(202);
 
 	var setTextContent = __webpack_require__(215);
 	var invariant = __webpack_require__(80);
@@ -29054,7 +29054,7 @@
 
 	var ReactDOMSelection = __webpack_require__(216);
 
-	var containsNode = __webpack_require__(145);
+	var containsNode = __webpack_require__(146);
 	var focusNode = __webpack_require__(213);
 	var getActiveElement = __webpack_require__(182);
 
@@ -29192,7 +29192,7 @@
 	'use strict';
 
 	var PooledClass = __webpack_require__(94);
-	var ReactBrowserEventEmitter = __webpack_require__(141);
+	var ReactBrowserEventEmitter = __webpack_require__(142);
 
 	var assign = __webpack_require__(57);
 
@@ -30488,12 +30488,12 @@
 	var ReactPropTypeLocations = __webpack_require__(101);
 	var ReactPropTypeLocationNames = __webpack_require__(102);
 	var ReactReconciler = __webpack_require__(75);
-	var ReactUpdates = __webpack_require__(144);
+	var ReactUpdates = __webpack_require__(145);
 
 	var assign = __webpack_require__(57);
 	var emptyObject = __webpack_require__(105);
 	var invariant = __webpack_require__(80);
-	var shouldUpdateReactComponent = __webpack_require__(149);
+	var shouldUpdateReactComponent = __webpack_require__(150);
 	var warning = __webpack_require__(83);
 
 	function getDeclarationErrorAddendum(component) {
@@ -31508,6 +31508,174 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule ReactMultiChildUpdateTypes
+	 */
+
+	'use strict';
+
+	var keyMirror = __webpack_require__(103);
+
+	/**
+	 * When a component's children are updated, a series of update configuration
+	 * objects are created in order to batch and serialize the required changes.
+	 *
+	 * Enumerates all the possible types of update configurations.
+	 *
+	 * @internal
+	 */
+	var ReactMultiChildUpdateTypes = keyMirror({
+	  INSERT_MARKUP: null,
+	  MOVE_EXISTING: null,
+	  REMOVE_NODE: null,
+	  TEXT_CONTENT: null
+	});
+
+	module.exports = ReactMultiChildUpdateTypes;
+
+
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactChildReconciler
+	 * @typechecks static-only
+	 */
+
+	'use strict';
+
+	var ReactReconciler = __webpack_require__(75);
+
+	var flattenChildren = __webpack_require__(219);
+	var instantiateReactComponent = __webpack_require__(148);
+	var shouldUpdateReactComponent = __webpack_require__(150);
+
+	/**
+	 * ReactChildReconciler provides helpers for initializing or updating a set of
+	 * children. Its output is suitable for passing it onto ReactMultiChild which
+	 * does diffed reordering and insertion.
+	 */
+	var ReactChildReconciler = {
+
+	  /**
+	   * Generates a "mount image" for each of the supplied children. In the case
+	   * of `ReactDOMComponent`, a mount image is a string of markup.
+	   *
+	   * @param {?object} nestedChildNodes Nested child maps.
+	   * @return {?object} A set of child instances.
+	   * @internal
+	   */
+	  instantiateChildren: function(nestedChildNodes, transaction, context) {
+	    var children = flattenChildren(nestedChildNodes);
+	    for (var name in children) {
+	      if (children.hasOwnProperty(name)) {
+	        var child = children[name];
+	        // The rendered children must be turned into instances as they're
+	        // mounted.
+	        var childInstance = instantiateReactComponent(child, null);
+	        children[name] = childInstance;
+	      }
+	    }
+	    return children;
+	  },
+
+	  /**
+	   * Updates the rendered children and returns a new set of children.
+	   *
+	   * @param {?object} prevChildren Previously initialized set of children.
+	   * @param {?object} nextNestedChildNodes Nested child maps.
+	   * @param {ReactReconcileTransaction} transaction
+	   * @param {object} context
+	   * @return {?object} A new set of child instances.
+	   * @internal
+	   */
+	  updateChildren: function(
+	    prevChildren,
+	    nextNestedChildNodes,
+	    transaction,
+	    context) {
+	    // We currently don't have a way to track moves here but if we use iterators
+	    // instead of for..in we can zip the iterators and check if an item has
+	    // moved.
+	    // TODO: If nothing has changed, return the prevChildren object so that we
+	    // can quickly bailout if nothing has changed.
+	    var nextChildren = flattenChildren(nextNestedChildNodes);
+	    if (!nextChildren && !prevChildren) {
+	      return null;
+	    }
+	    var name;
+	    for (name in nextChildren) {
+	      if (!nextChildren.hasOwnProperty(name)) {
+	        continue;
+	      }
+	      var prevChild = prevChildren && prevChildren[name];
+	      var prevElement = prevChild && prevChild._currentElement;
+	      var nextElement = nextChildren[name];
+	      if (shouldUpdateReactComponent(prevElement, nextElement)) {
+	        ReactReconciler.receiveComponent(
+	          prevChild, nextElement, transaction, context
+	        );
+	        nextChildren[name] = prevChild;
+	      } else {
+	        if (prevChild) {
+	          ReactReconciler.unmountComponent(prevChild, name);
+	        }
+	        // The child must be instantiated before it's mounted.
+	        var nextChildInstance = instantiateReactComponent(
+	          nextElement,
+	          null
+	        );
+	        nextChildren[name] = nextChildInstance;
+	      }
+	    }
+	    // Unmount children that are no longer present.
+	    for (name in prevChildren) {
+	      if (prevChildren.hasOwnProperty(name) &&
+	          !(nextChildren && nextChildren.hasOwnProperty(name))) {
+	        ReactReconciler.unmountComponent(prevChildren[name]);
+	      }
+	    }
+	    return nextChildren;
+	  },
+
+	  /**
+	   * Unmounts all rendered children. This should be used to clean up children
+	   * when this component is unmounted.
+	   *
+	   * @param {?object} renderedChildren Previously initialized set of children.
+	   * @internal
+	   */
+	  unmountChildren: function(renderedChildren) {
+	    for (var name in renderedChildren) {
+	      var renderedChild = renderedChildren[name];
+	      ReactReconciler.unmountComponent(renderedChild);
+	    }
+	  }
+
+	};
+
+	module.exports = ReactChildReconciler;
+
+
+/***/ },
+/* 204 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 * @providesModule CSSProperty
 	 */
 
@@ -31626,7 +31794,7 @@
 
 
 /***/ },
-/* 203 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31643,7 +31811,7 @@
 
 	"use strict";
 
-	var camelize = __webpack_require__(219);
+	var camelize = __webpack_require__(220);
 
 	var msPattern = /^-ms-/;
 
@@ -31672,7 +31840,7 @@
 
 
 /***/ },
-/* 204 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31689,7 +31857,7 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(202);
+	var CSSProperty = __webpack_require__(204);
 
 	var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 
@@ -31734,7 +31902,7 @@
 
 
 /***/ },
-/* 205 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31751,7 +31919,7 @@
 
 	"use strict";
 
-	var hyphenate = __webpack_require__(220);
+	var hyphenate = __webpack_require__(221);
 
 	var msPattern = /^ms-/;
 
@@ -31779,7 +31947,7 @@
 
 
 /***/ },
-/* 206 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31813,174 +31981,6 @@
 	}
 
 	module.exports = memoizeStringOnly;
-
-
-/***/ },
-/* 207 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactMultiChildUpdateTypes
-	 */
-
-	'use strict';
-
-	var keyMirror = __webpack_require__(103);
-
-	/**
-	 * When a component's children are updated, a series of update configuration
-	 * objects are created in order to batch and serialize the required changes.
-	 *
-	 * Enumerates all the possible types of update configurations.
-	 *
-	 * @internal
-	 */
-	var ReactMultiChildUpdateTypes = keyMirror({
-	  INSERT_MARKUP: null,
-	  MOVE_EXISTING: null,
-	  REMOVE_NODE: null,
-	  TEXT_CONTENT: null
-	});
-
-	module.exports = ReactMultiChildUpdateTypes;
-
-
-/***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactChildReconciler
-	 * @typechecks static-only
-	 */
-
-	'use strict';
-
-	var ReactReconciler = __webpack_require__(75);
-
-	var flattenChildren = __webpack_require__(221);
-	var instantiateReactComponent = __webpack_require__(147);
-	var shouldUpdateReactComponent = __webpack_require__(149);
-
-	/**
-	 * ReactChildReconciler provides helpers for initializing or updating a set of
-	 * children. Its output is suitable for passing it onto ReactMultiChild which
-	 * does diffed reordering and insertion.
-	 */
-	var ReactChildReconciler = {
-
-	  /**
-	   * Generates a "mount image" for each of the supplied children. In the case
-	   * of `ReactDOMComponent`, a mount image is a string of markup.
-	   *
-	   * @param {?object} nestedChildNodes Nested child maps.
-	   * @return {?object} A set of child instances.
-	   * @internal
-	   */
-	  instantiateChildren: function(nestedChildNodes, transaction, context) {
-	    var children = flattenChildren(nestedChildNodes);
-	    for (var name in children) {
-	      if (children.hasOwnProperty(name)) {
-	        var child = children[name];
-	        // The rendered children must be turned into instances as they're
-	        // mounted.
-	        var childInstance = instantiateReactComponent(child, null);
-	        children[name] = childInstance;
-	      }
-	    }
-	    return children;
-	  },
-
-	  /**
-	   * Updates the rendered children and returns a new set of children.
-	   *
-	   * @param {?object} prevChildren Previously initialized set of children.
-	   * @param {?object} nextNestedChildNodes Nested child maps.
-	   * @param {ReactReconcileTransaction} transaction
-	   * @param {object} context
-	   * @return {?object} A new set of child instances.
-	   * @internal
-	   */
-	  updateChildren: function(
-	    prevChildren,
-	    nextNestedChildNodes,
-	    transaction,
-	    context) {
-	    // We currently don't have a way to track moves here but if we use iterators
-	    // instead of for..in we can zip the iterators and check if an item has
-	    // moved.
-	    // TODO: If nothing has changed, return the prevChildren object so that we
-	    // can quickly bailout if nothing has changed.
-	    var nextChildren = flattenChildren(nextNestedChildNodes);
-	    if (!nextChildren && !prevChildren) {
-	      return null;
-	    }
-	    var name;
-	    for (name in nextChildren) {
-	      if (!nextChildren.hasOwnProperty(name)) {
-	        continue;
-	      }
-	      var prevChild = prevChildren && prevChildren[name];
-	      var prevElement = prevChild && prevChild._currentElement;
-	      var nextElement = nextChildren[name];
-	      if (shouldUpdateReactComponent(prevElement, nextElement)) {
-	        ReactReconciler.receiveComponent(
-	          prevChild, nextElement, transaction, context
-	        );
-	        nextChildren[name] = prevChild;
-	      } else {
-	        if (prevChild) {
-	          ReactReconciler.unmountComponent(prevChild, name);
-	        }
-	        // The child must be instantiated before it's mounted.
-	        var nextChildInstance = instantiateReactComponent(
-	          nextElement,
-	          null
-	        );
-	        nextChildren[name] = nextChildInstance;
-	      }
-	    }
-	    // Unmount children that are no longer present.
-	    for (name in prevChildren) {
-	      if (prevChildren.hasOwnProperty(name) &&
-	          !(nextChildren && nextChildren.hasOwnProperty(name))) {
-	        ReactReconciler.unmountComponent(prevChildren[name]);
-	      }
-	    }
-	    return nextChildren;
-	  },
-
-	  /**
-	   * Unmounts all rendered children. This should be used to clean up children
-	   * when this component is unmounted.
-	   *
-	   * @param {?object} renderedChildren Previously initialized set of children.
-	   * @internal
-	   */
-	  unmountChildren: function(renderedChildren) {
-	    for (var name in renderedChildren) {
-	      var renderedChild = renderedChildren[name];
-	      ReactReconciler.unmountComponent(renderedChild);
-	    }
-	  }
-
-	};
-
-	module.exports = ReactChildReconciler;
 
 
 /***/ },
@@ -32421,7 +32421,7 @@
 
 	var ExecutionEnvironment = __webpack_require__(58);
 	var escapeTextContentForBrowser = __webpack_require__(112);
-	var setInnerHTML = __webpack_require__(148);
+	var setInnerHTML = __webpack_require__(149);
 
 	/**
 	 * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -32810,79 +32810,6 @@
 /* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule camelize
-	 * @typechecks
-	 */
-
-	var _hyphenPattern = /-(.)/g;
-
-	/**
-	 * Camelcases a hyphenated string, for example:
-	 *
-	 *   > camelize('background-color')
-	 *   < "backgroundColor"
-	 *
-	 * @param {string} string
-	 * @return {string}
-	 */
-	function camelize(string) {
-	  return string.replace(_hyphenPattern, function(_, character) {
-	    return character.toUpperCase();
-	  });
-	}
-
-	module.exports = camelize;
-
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule hyphenate
-	 * @typechecks
-	 */
-
-	var _uppercasePattern = /([A-Z])/g;
-
-	/**
-	 * Hyphenates a camelcased string, for example:
-	 *
-	 *   > hyphenate('backgroundColor')
-	 *   < "background-color"
-	 *
-	 * For CSS style names, use `hyphenateStyleName` instead which works properly
-	 * with all vendor prefixes, including `ms`.
-	 *
-	 * @param {string} string
-	 * @return {string}
-	 */
-	function hyphenate(string) {
-	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-	}
-
-	module.exports = hyphenate;
-
-
-/***/ },
-/* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
 	 * All rights reserved.
@@ -32939,6 +32866,79 @@
 	module.exports = flattenChildren;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(92)))
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule camelize
+	 * @typechecks
+	 */
+
+	var _hyphenPattern = /-(.)/g;
+
+	/**
+	 * Camelcases a hyphenated string, for example:
+	 *
+	 *   > camelize('background-color')
+	 *   < "backgroundColor"
+	 *
+	 * @param {string} string
+	 * @return {string}
+	 */
+	function camelize(string) {
+	  return string.replace(_hyphenPattern, function(_, character) {
+	    return character.toUpperCase();
+	  });
+	}
+
+	module.exports = camelize;
+
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule hyphenate
+	 * @typechecks
+	 */
+
+	var _uppercasePattern = /([A-Z])/g;
+
+	/**
+	 * Hyphenates a camelcased string, for example:
+	 *
+	 *   > hyphenate('backgroundColor')
+	 *   < "background-color"
+	 *
+	 * For CSS style names, use `hyphenateStyleName` instead which works properly
+	 * with all vendor prefixes, including `ms`.
+	 *
+	 * @param {string} string
+	 * @return {string}
+	 */
+	function hyphenate(string) {
+	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+	}
+
+	module.exports = hyphenate;
+
 
 /***/ },
 /* 222 */
