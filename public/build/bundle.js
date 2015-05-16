@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8399b186376558636c2a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dcfb8a498fbb9696a6ff"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -537,9 +537,6 @@
 	var React = __webpack_require__(7),
 	  Router = __webpack_require__(12),
 	  Quote = __webpack_require__(1),
-	  QuoteMain = __webpack_require__(2),
-	  QuoteStd = __webpack_require__(3),
-	  QuoteAdv = __webpack_require__(4),
 	  Results = __webpack_require__(5),
 	  Route = Router.Route,
 	  DefaultRoute = Router.DefaultRoute,
@@ -548,13 +545,8 @@
 
 	var routes = (
 	  React.createElement(Route, {handler: App}, 
-	    React.createElement(Redirect, {from: "/", to: "quote-step1"}), 
-	    React.createElement(Route, {name: "quote", handler: Quote}, 
-	      React.createElement(Redirect, {from: "quote", to: "quote-step1"}), 
-	      React.createElement(Route, {name: "quote-step1", path: "step1", handler: QuoteMain}), 
-	      React.createElement(Route, {name: "quote-step2", path: "step2", handler: QuoteStd}), 
-	      React.createElement(Route, {name: "quote-adv", path: "advanced", handler: QuoteAdv})
-	    ), 
+	    React.createElement(Redirect, {from: "/", to: "quote"}), 
+	    React.createElement(Route, {name: "quote", handler: Quote}), 
 	    React.createElement(Route, {name: "results", handler: Results})
 	  )
 	);
@@ -583,15 +575,13 @@
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement(Header, null), 
-	        React.createElement("div", {className: "container"}, 
-	          React.createElement("div", {className: "product-info"}, 
-	            React.createElement("h2", null, "Compare PCB prices from top venders."), 
-	            React.createElement(RouteHandler, React.__spread({},  this.props)), 
-	            React.createElement("div", {className: "wrapper"}, 
-	              React.createElement("button", {onClick: this.submit, 
-	                className: "go-button"}, 
-	                React.createElement("strong", null, "Go")
-	              )
+	        React.createElement("div", {className: "product-info"}, 
+	          React.createElement("h2", null, "Compare PCB prices from top venders."), 
+	          React.createElement(QuoteMain, React.__spread({},  this.props)), 
+	          React.createElement("div", {className: "wrapper"}, 
+	            React.createElement("button", {onClick: this.submit, 
+	              className: "go-button"}, 
+	              React.createElement("strong", null, "Go")
 	            )
 	          )
 	        )
@@ -605,8 +595,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(7),
-	  InputField = __webpack_require__(9),
-	  Link = __webpack_require__(12).Link;
+	  InputField = __webpack_require__(9);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  render: function () {
@@ -649,8 +638,7 @@
 	                  description: "How many business days can you wait for your board to be manufactured?", 
 	                  onChange: this.props.onChange}), 
 	                React.createElement("div", {className: "product-info-clear"}), 
-	                React.createElement("br", null), 
-	                React.createElement(Link, {to: "quote-step2"}, "More Options")
+	                React.createElement("br", null)
 	              )
 	            ));
 	  }
@@ -661,8 +649,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(7),
-	  InputField = __webpack_require__(9),
-	  Link = __webpack_require__(12).Link;
+	  InputField = __webpack_require__(9);
 
 	module.exports = React.createClass({displayName: "module.exports",
 	  render: function () {
@@ -740,8 +727,7 @@
 	          title: "Soldermask", 
 	          onChange: this.props.onChange}), 
 	        React.createElement("div", {className: "product-info-clear"})
-	      ), 
-	      React.createElement(Link, {to: "quote-adv"}, "Advanced Options")
+	      )
 	    ));
 	  }
 	});
@@ -835,11 +821,9 @@
 	  SidePanel = __webpack_require__(10),
 	  ResultView = __webpack_require__(11);
 
-	__webpack_require__(16);
-
 	module.exports = React.createClass({displayName: "module.exports",
 	  render: function () {
-	    return (React.createElement("div", {className: "container"}, 
+	    return (React.createElement("div", null, 
 	      React.createElement(SidePanel, React.__spread({},  this.props)), 
 	      React.createElement(ResultView, null)
 	    ));
@@ -953,27 +937,19 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(7),
-	  QuoteSide = __webpack_require__(24);
+	  QuoteSide = __webpack_require__(24),
+	  QuoteStd = __webpack_require__(3),
+	  QuoteAdv = __webpack_require__(4);
 
 	__webpack_require__(25);
 
 	module.exports = React.createClass({displayName: "module.exports",
-	  getInitialState: function () {
-	    return this.props;
-	  },
-	  submit: function (e) {
-	    this.props.submit(this.state);
-	  },
-	  onChange: function (e) {
-	    var prop = {};
-	    prop[e.target.id] = e.target.value;
-	    this.setState(prop);
-	  },
 	  render: function () {
 	    return (React.createElement("div", {className: "side-panel"}, 
 	        React.createElement("img", {className: "logo-letter", src: "properlogo.png"}), 
-	        React.createElement(QuoteSide, React.__spread({},  this.state, 
-	          {onChange: this.onChange}))
+	        React.createElement(QuoteSide, React.__spread({},  this.props)), 
+	        React.createElement(QuoteStd, React.__spread({},  this.props)), 
+	        React.createElement(QuoteAdv, React.__spread({},  this.props))
 	      ));
 	  }
 	});
@@ -1094,39 +1070,8 @@
 	exports.push([module.id, "a {\n  color: white;\n  margin-top: 10px; }\n\na:link {\n  color: white; }\n\n.go-button {\n  font-size: 1.4em;\n  color: white;\n  margin-top: 20px;\n  padding: 10px 0;\n  border-radius: 2px;\n  width: 100%;\n  background: #0C0;\n  outline: none;\n  border: none;\n  text-decoration: none;\n  display: block;\n  text-align: center; }\n\n.go-button:active {\n  background: #0A0; }\n", ""]);
 
 /***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(17);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(30)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(true) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept(17, function() {
-				var newContent = __webpack_require__(17);
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(57)();
-	exports.push([module.id, ".container {\n  position: absolute;\n  width: 100%;\n  height: 100%; }\n", ""]);
-
-/***/ },
+/* 16 */,
+/* 17 */,
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1295,7 +1240,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(57)();
-	exports.push([module.id, ".side-panel {\n  left: 0;\n  position: fixed;\n  overflow: auto;\n  padding-left: 10px;\n  width: 200px;\n  background-color: rgba(35, 39, 46, 0.5);\n  height: 100%; }\n\n.side-panel form {\n  padding: 20px;\n  text-align: left; }\n\n.side-panel div {\n  padding: 10px 0; }\n\n.logo-letter {\n  width: 150px;\n  margin: 15px; }\n", ""]);
+	exports.push([module.id, ".side-panel {\n  left: 0;\n  position: fixed;\n  overflow: auto;\n  padding-left: 10px;\n  padding-bottom: 50px;\n  width: 200px;\n  background-color: rgba(35, 39, 46, 0.5);\n  height: 100%; }\n\n.side-panel form {\n  padding: 20px;\n  text-align: left; }\n\n.side-panel div {\n  padding: 10px 0; }\n\n.logo-letter {\n  width: 150px;\n  margin: 15px; }\n", ""]);
 
 /***/ },
 /* 27 */
@@ -1353,7 +1298,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(57)();
-	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  height: 100%;\n  width: 100%; }\n", ""]);
+	exports.push([module.id, ".results-view {\n  padding-left: 200px;\n  padding-bottom: 50px;\n  height: 100%;\n  width: 100%;\n  overflow: auto; }\n", ""]);
 
 /***/ },
 /* 30 */

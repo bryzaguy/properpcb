@@ -14,16 +14,14 @@ module.exports = React.createClass({
     return (
       <div>
         <Header />
-        <div className="container">
-          <div className="product-info">
-            <h2>Compare PCB prices from top venders.</h2>
-            <RouteHandler {...this.props} />
-            <div className="wrapper">
-              <button onClick={this.submit}
-                className="go-button">
-                <strong>Go</strong>
-              </button>
-            </div>
+        <div className="product-info">
+          <h2>Compare PCB prices from top venders.</h2>
+          <QuoteMain {...this.props} />
+          <div className="wrapper">
+            <button onClick={this.submit}
+              className="go-button">
+              <strong>Go</strong>
+            </button>
           </div>
         </div>
       </div>

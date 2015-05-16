@@ -1,6 +1,5 @@
 var React = require('react'),
-  InputField = require('./inputField.jsx'),
-  Link = require('react-router').Link;
+  InputField = require('./inputField.jsx');
 
 module.exports = React.createClass({
   render: function () {
@@ -44,7 +43,6 @@ module.exports = React.createClass({
                   onChange={this.props.onChange}/>
                 <div className="product-info-clear" />
                 <br />
-                <Link to="quote-step2">More Options</Link>
               </div>
             </div>);
   }
